@@ -3,26 +3,21 @@ function caculateElectricalBill(){
     let isUsingPrepaidCard = Boolean(prompt('Co dung the tra truoc khong'));
     let numberOfElectricalUsed = Number(prompt('Nhap so kWh: '))
     if(!isUsingPrepaidCard){
-        if(numberOfElectricalUsed <= 0){
-            return 0;
-        }
-        else if(numberOfElectricalUsed <= 50){
-            return 1806 * numberOfElectricalUsed;
-        }
-        else if(numberOfElectricalUsed <= 100){
-            return 1866 * numberOfElectricalUsed;
-        }
-        else if(numberOfElectricalUsed <= 200){
-            return 2167 * numberOfElectricalUsed;
-        }
-        else if(numberOfElectricalUsed <= 300){
-            return 2729 * numberOfElectricalUsed;
-        }
-        else if(numberOfElectricalUsed <= 400){
-            return 3050 * numberOfElectricalUsed;
-        }
-        else{
-            return 3151 * numberOfElectricalUsed;
+        switch(numberOfElectricalUsed){
+            case(numberOfElectricalUsed <= 50):
+                return 1806 * numberOfElectricalUsed;
+            case(numberOfElectricalUsed <= 100):
+                return 50 * 1806 + (numberOfElectricalUsed - 50) * 1866;
+            case(numberOfElectricalUsed <= 200):
+                return 50 + 1806 + 50 * 1866 + (numberOfElectricalUsed - 100) * 2167;
+            case(numberOfElectricalUsed <= 300):
+                return 50 + 1806 + 50 * 1866 + 100 * 2167 + (numberOfElectricalUsed - 200) * 2792;
+            case(numberOfElectricalUsed <= 400):
+                return 50 + 1806 + 50 * 1866 + 100 * 2167 + 100 * 2729 + (numberOfElectricalUsed - 300) * 3050;
+            case(numberOfElectricalUsed > 400):
+                return 50 + 1806 + 50 * 1866 + 100 * 2167 + 100 * 2729 + 100 * 3050 + (numberOfElectricalUsed - 400) * 3151;
+            default:
+                return 0;
         }
     }
     else{
