@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính tiền điện</title>
+  <script>
+    function tinhTienDien() {
+      const soDienTieuThuInput = document.getElementById('soDienTieuThu');
+      const ketQuaOutput = document.getElementById('ketQua');
+      const soDienTieuThu = parseFloat(soDienTieuThuInput.value);
+      if (isNaN(soDienTieuThu)) {
+        alert('Vui lòng nhập số điện hợp lệ.');
+        return;
+      }
+      let tienDien = 0;
+    switch (true) {
+        case soDienTieuThu <= 50:
+          tienDien = soDienTieuThu * 1806;
+          break;
+        case soDienTieuThu <= 100:
+          tienDien = (soDienTieuThu - 50) * 1866 + 50 * 1806;
+          break;
+        case soDienTieuThu <= 200:
+          tienDien = (soDienTieuThu - 100) * 2167 + 50 * 1866 + 50 * 1806;
+          break;
+        case soDienTieuThu <= 300:
+          tienDien = (soDienTieuThu - 200) * 2729 + 100 * 2167 + 50 * 1866 + 50 * 1806;
+          break;
+        case soDienTieuThu <= 400:
+          tienDien = (soDienTieuThu - 300) * 3050 + 100 * 2729 + 100 * 2167 + 50 * 1866 + 50 * 1806;
+          break;
+        default:
+          tienDien = (soDienTieuThu - 400) * 3151 + 100 * 3050 + 100 * 2729 + 100 * 2167 + 50 * 1866 + 50 * 1806;
+          break;
+      }
+      const thueVAT = tienDien * 0.1;
+      tienDien += thueVAT;
+      ketQuaOutput.innerHTML = `Số tiền: ${tienDien.toFixed(2)} VND`;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Tính tiền điện</h1>
+    <label for="soDienTieuThu">Nhập số điện:</label>
+    <input type="number" id="soDienTieuThu">
+    <button onclick="tinhTienDien()">Tính tiền</button>
+    <div id="ketQua"></div>
+  </div>
+</body>
+</html>
