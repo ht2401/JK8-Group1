@@ -1,0 +1,33 @@
+table {
+    background-color: #dae4ee;
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  
+  .btn-primary {
+    background-color: #6b849d;
+    color: #131111;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .error {
+    border: 1px solid red; /* Đổi màu viền của ô nhập liệu khi có lỗi */
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

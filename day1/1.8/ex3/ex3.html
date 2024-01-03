@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Tra Số Chính Phương</title>
+</head>
+<body>
+    <h2>Kiểm tra số chính phương</h2>
+    <form id="myForm">
+        <label for="soCanKiemTra">Nhập số:</label>
+        <input type="number" id="soCanKiemTra" name="soCanKiemTra" required>
+        <button type="button" onclick="kiemTraSoChinhPhuong()">Kiểm tra</button>
+    </form>
+    <p id="ketQua"></p>
+    <script>
+        function kiemTraSoChinhPhuong() {
+            // Lấy giá trị từ ô nhập số
+            var soNhap = parseInt(document.getElementById("soCanKiemTra").value);
+            // Kiểm tra và hiển thị kết quả
+            var ketQua = kiemTraChinhPhuong(soNhap);
+            document.getElementById("ketQua").innerHTML = ketQua;
+        }
+        function kiemTraChinhPhuong(n) {
+            // Kiểm tra xem n có phải là số dương không
+            if (n <= 0) {
+                return "Vui lòng nhập số dương.";
+            }
+            // Kiểm tra xem n có phải là số chính phương không
+            var canBacHai = Math.sqrt(n);
+            if (canBacHai === Math.floor(canBacHai)) {
+                return `${n} là số chính phương.`;
+            } else {
+                return `${n} không phải là số chính phương.`;
+            }
+        }
+    </script>
+</body>
+</html>

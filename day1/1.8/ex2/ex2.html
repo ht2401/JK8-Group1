@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải Phương Trình Bậc Nhất</title>
+</head>
+<body>
+    <h2>Giải phương trình bậc nhất ax + b = 0</h2>
+    <form id="myForm">
+        <label for="heSoA">Hệ số a:</label>
+        <input type="number" id="heSoA" name="heSoA" required>
+        <label for="heSoB">Hệ số b:</label>
+        <input type="number" id="heSoB" name="heSoB" required>
+        <button type="button" onclick="giaiPhuongTrinh()">Giải phương trình</button>
+    </form>
+    <p id="ketQua"></p>
+    <script>
+        function giaiPhuongTrinh() {
+            // Lấy giá trị từ ô nhập hệ số a và b
+            var heSoA = parseFloat(document.getElementById("heSoA").value);
+            var heSoB = parseFloat(document.getElementById("heSoB").value);
+            // Gọi hàm giải phương trình và hiển thị kết quả
+            var ketQua = giaiPhuongTrinhBacNhat(heSoA, heSoB);
+            document.getElementById("ketQua").innerHTML = ketQua;
+        }
+        function giaiPhuongTrinhBacNhat(a, b) {
+            // Kiểm tra a có phải là số
+            if (isNaN(a)) {
+                return "Hệ số a không hợp lệ.";
+            }
+            // Giải phương trình bậc nhất ax + b = 0
+            if (a === 0) {
+                if (b === 0) {
+                    return "Phương trình có vô số nghiệm.";
+                } else {
+                    return "Phương trình vô nghiệm.";
+                }
+            } else {
+                var x = -b / a;
+                return "Nghiệm của phương trình là x = " + x.toFixed(3);
+            }
+        }
+    </script>
+</body>
+</html>

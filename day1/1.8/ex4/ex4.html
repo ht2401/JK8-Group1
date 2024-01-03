@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Liên hệ</title>
+  <link rel="stylesheet" type="text/css" href="ex4.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Liên hệ</h1>
+    <form action="/contact" method="post" id="contactForm">
+      <table>
+        <tr>
+          <td style="text-align: right;"><label for="name" >Name</label></td>
+          <td><input type="text" class="form-control" id="name" name="name" placeholder=""></td>
+        </tr>
+        <tr>
+          <td style="text-align: right;"><label for="email" >Email</label></td>
+          <td><input type="email" class="form-control" id="email" name="email" placeholder=""></td>
+        </tr>
+        <tr>
+          <td style="text-align: right;"><label for="website" >Website</label></td>
+          <td><input type="text" class="form-control" id="website" name="website" placeholder=""></td>
+        </tr>
+        <tr>
+          <td style="text-align: right;"><label for="message" >Message</label></td>
+          <td><textarea class="form-control" id="message" name="message" rows="5" placeholder=""></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+          <td colspan="2"><input type="submit" class="btn btn-primary" value="Submit"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <script src="ex4.js"></script>
+</body>
+</html>
