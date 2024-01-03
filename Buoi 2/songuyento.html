@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="message"></h1>
+    <script>
+        let num = (Number)(prompt("nhap vao so can kiem tra"))
+        let message = "So ban nhap la so nguyen to"
+        for(let i = 2; i<=num/2; i++){
+            if(num%i == 0){
+                message = "khong phai la so nguyen to"
+                break;
+            }
+        }
+        console.log(message)
+        document.getElementById("message").innerHTML = message;
+    </script>
+</body>
+</html>
