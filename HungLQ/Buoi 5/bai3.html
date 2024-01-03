@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function chuanHoaTen(input) {
+        var words = input.toLowerCase().split(' ');
+
+        for (var i = 0; i < words.length; i++) {
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
+        }
+        return words.join(' ');
+        }
+        let name = prompt("nhap ten")
+        var tenChuanHoa = chuanHoaTen(name);
+        console.log(tenChuanHoa);
+    </script>
+</body>
+</html>
