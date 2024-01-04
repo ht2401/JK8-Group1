@@ -195,6 +195,7 @@ function checkGameOver() {
         document.getElementById("highest-score").innerHTML = score;
         localStorage.setItem("highestScore",score);
     }
+    document.getElementById("game-over-score").innerHTML = score;
     document.getElementById("game-over").style.display = 'flex';
     
 }
