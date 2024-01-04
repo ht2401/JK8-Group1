@@ -4,19 +4,20 @@
 // Chú ý: tiền điện phải trả cần tính thêm 10% thuế VAT
 
 function calcEVN(input) {
-    if (0 <= input <= 50) {
-        return input*1806*1.1
-    } else if (51 <= input <= 100) {
-        return input*1866*1.1
-    } else if (101 <= input <= 200) {
-        return input*2167*1.1
-    } else if (201 <= input <= 300) {
-        return input*2729*1.1
-    } else if (301 <= input <= 400) {
-        return input*3050*1.1
-    } else if (401 <= input) {
-        return input*3151*1.1
-    } 
+    switch (true) {
+        case (0 < input < 50):
+            return input * 1806 * 1.1
+        case (51 < input < 100):
+            return input * 1866 * 1.1
+        case (101 < input < 200):
+            return input * 2167 * 1.1
+        case (201 < input < 300):
+            return input * 2729 * 1.1
+        case (301 < input < 400):
+            return input * 3050 * 1.1
+        case (401 <= input):
+            return input * 3151 * 1.1
+    }
 }
 
 console.log(calcEVN(100.87).toFixed(2));
