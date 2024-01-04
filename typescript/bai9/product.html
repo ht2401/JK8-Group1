@@ -1,0 +1,88 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Example</title>
+</head>
+<body>
+    <script src="product.js"></script>
+
+    <script>
+        // Sử dụng type Product từ file JavaScript
+        const productLists = [
+            {
+            id: 1,
+            name: "Product 1",
+            price: 10,
+            quantity: 50
+        },
+        {
+            id: 2,
+            name: "Product 2",
+            price: 20,
+            quantity: 50
+        },
+        {
+            id: 3,
+            name: "Product 3",
+            price: 30,
+            quantity: 50
+        },
+        {
+            id: 4,
+            name: "Product 4",
+            price: 40,
+            quantity: 50
+        },
+        {
+            id: 5,
+            name: "Product 5",
+            price: 50,
+            quantity: 50
+        },
+        {
+            id: 6,
+            name: "Product 6",
+            price: 60,
+            quantity: 50
+        },
+    ];
+
+        // Hiển thị thông tin sản phẩm trong Console
+        console.log("ProductLists:", productLists);
+
+        // Sử dụng reduce để tính tổng giá trị của tất cả các sản phẩm
+        const totalValue = productLists.reduce((total, product) => {
+            return total + (product.price * product.quantity);
+        }, 0);
+        console.log("Tổng tiền:", totalValue);
+
+        // Sử dụng filter để lọc các sản phẩm có giá trị lớn hơn 50
+        const productListPrice = productLists.filter(product => product.price  > 50);
+        console.log("các sản phẩm > 50:", productListPrice);
+
+        // Sử dụng map để tạo mảng mới chứa các đoạn mô tả
+        const productLiteral = productLists.map(product => `${product.name} có giá ${product.price} đồng và còn ${product.quantity} sản phẩm` + '\n');
+        console.log("Product Literal:", productLiteral);
+
+        // Sử dụng reduce để tính tổng số lượng sản phẩm có giá dưới 50
+        const totalQuantityUnder50 = productLists.reduce((total, product) => {
+            return product.price < 50 ? total + product.quantity : total;
+        }, 0);
+        console.log("Total Quantity Under 50:", totalQuantityUnder50);
+
+        // Hàm tính giảm giá cho sản phẩm
+        function getDiscountedProducts(products, discountRate) {
+            return products.map(product => {
+                const discountedPrice = product.price * (1 - discountRate);
+                return { ...product, discountedPrice };
+            });
+        }
+        // Gọi hàm getDiscountedProducts với tỷ lệ giảm giá là 0.2 (20%)
+        const discountedProducts = getDiscountedProducts(productLists, 0.2);
+        console.log("Discounted Products:", discountedProducts);
+    </script>
+</body>
+</html>
