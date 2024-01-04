@@ -1,0 +1,104 @@
+body {
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    background-color: black;
+    border: solid black 5px;
+} 
+
+.tile {
+    width: 25%;
+    height: 25%;
+    border: solid black 5px;
+    border-radius: 15px;
+    background-color: lightgray;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: black
+}
+
+.tile2 {
+    background-color: magenta
+}
+
+.tile4 {
+    background-color: skyblue
+}
+
+.tile8 {
+    background-color: red
+}
+
+.tile16 {
+    background-color: green
+}
+
+.tile32 {
+    background-color: yellow
+}
+
+.tile64 {
+    background-color: blueviolet
+}
+
+.tile128 {
+    background-color: blue
+}
+
+.tile256 {
+    background-color: orangered
+}
+
+.tile512 {
+    background-color: orange
+}
+
+.tile1024 {
+    background-color: purple
+}
+
+.tile2048 {
+    background-color: royalblue
+}
+
+/* transition */
+
+.move {
+    position: relative;
+    transition: transform 0.5s ease-in-out opacity 0.5 ease-in-out;
+}
+
+.move.up {
+    transform: translateY(-100px); 
+    opacity: 0;
+}
+
+.move.down {
+    transform: translateY(100px); 
+    opacity: 0;
+}
+
+.move.right {
+    transform: translateX(100px); 
+    opacity: 0;
+}
+
+.move.left {
+    transform: translateX(-100px); 
+    opacity: 0;
+}
+
+.popup {
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.2);
+}
+
+
