@@ -24,8 +24,6 @@ function setGame() {
             document.getElementById("board").append(tile);
         }
     }
-    //create 2 to begin the game
-    setTwo();
     setTwo();
 
 }
@@ -36,10 +34,10 @@ function updateTile(tile, num) {
     tile.classList.add("tile");
     if (num > 0) {
         tile.innerText = num.toString();
-        if (num <= 4096) {
+        if (num <= 2048) {
             tile.classList.add("x"+num.toString());
         } else {
-            tile.classList.add("x8192");
+            tile.classList.add("x2048");
         }                
     }
 }
@@ -169,7 +167,6 @@ function setTwo() {
 }
 
 function hasEmptyTile() {
-    let count = 0;
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             if (board[r][c] == 0) { //at least one zero in the board
