@@ -1,0 +1,4 @@
+Bài 1. Viết hàm kiểm tra 1 số n có phải số nguyên dương hay là nguyên âm. Gợi ý hàm kiểm tra số nguyên isInteger
+Bài 2. Viết hàm giải phương trình bậc nhất ax + b = 0
+Bài 3. Viết hàm kiểm tra số n có phải số chính phương hay ko
+Bài 4. Validate form nhập như trong ảnh
