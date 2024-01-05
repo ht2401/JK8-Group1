@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "json-server": "^1.0.0-alpha.9",
+    "json-server": "^1.0.0-alpha.10",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
