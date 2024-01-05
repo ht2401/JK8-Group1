@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="userInfo">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <h2 id="name-error"></h2>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <h2 id="email-error"></h2>
+        <label for="web">Website:</label>
+        <input type="url" name="web" id="web">
+        <h2 id="web-error"></h2>
+
+        <label for="message">Message:</label>
+        <input type="text" name="message" id="message">
+        <h2 id="message-error"></h2>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function checkError(title){
+                if(document.getElementById(title).value == ""){
+                error = title+"-error"
+                document.getElementById(error).innerHTML = "This field is required";
+                }
+            }
+        let form = document.getElementById("userInfo");
+        form.addEventListener("submit",(e) => {
+            e.preventDefault();
+            checkError("name");
+            checkError("email");
+            checkError("web");
+            checkError("message");
+        });
+    </script>
+</body>
+</html>
