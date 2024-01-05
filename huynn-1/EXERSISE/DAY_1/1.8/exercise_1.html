@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số nguyên dương/nguyên âm</title>
+</head>
+<body>
+
+<h1>Kiểm tra số nguyên dương/nguyên âm</h1>
+
+<label for="numberInput">Nhập số:</label>
+<input type="number" id="numberInput">
+<button onclick="checkInteger()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+    function isInteger(number) {
+        return number === parseInt(number, 10) && number >= 0;
+    }
+
+    function checkInteger() {
+        var numberInput = document.getElementById("numberInput").value;
+        var resultElement = document.getElementById("result");
+
+        if (numberInput === "") {
+            resultElement.innerHTML = "Vui lòng nhập một số.";
+            return;
+        }
+
+        var number = parseFloat(numberInput);
+
+        if (isInteger(number)) {
+            resultElement.innerHTML = "Số nguyên dương.";
+        } else {
+            resultElement.innerHTML = "Không phải số nguyên dương.";
+        }
+    }
+</script>
+
+</body>
+</html>

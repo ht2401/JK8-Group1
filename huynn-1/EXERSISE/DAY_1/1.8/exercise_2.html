@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc nhất</title>
+</head>
+<body>
+
+<h1>Giải phương trình bậc nhất ax + b = 0</h1>
+
+<label for="aInput">Nhập giá trị a:</label>
+<input type="number" id="aInput">
+
+<label for="bInput">Nhập giá trị b:</label>
+<input type="number" id="bInput">
+
+<button onclick="solveEquation()">Giải phương trình</button>
+
+<p id="result"></p>
+
+<script>
+    function solveEquation() {
+        var a = parseFloat(document.getElementById("aInput").value);
+        var b = parseFloat(document.getElementById("bInput").value);
+        var resultElement = document.getElementById("result");
+
+        if (isNaN(a) || isNaN(b)) {
+            resultElement.innerHTML = "Vui lòng nhập giá trị a và b là số.";
+            return;
+        }
+
+        if (a === 0) {
+            if (b === 0) {
+                resultElement.innerHTML = "Phương trình vô số nghiệm.";
+            } else {
+                resultElement.innerHTML = "Phương trình vô nghiệm.";
+            }
+        } else {
+            var x = -b / a;
+            resultElement.innerHTML = "Nghiệm của phương trình là x = " + x.toFixed(2);
+        }
+    }
+</script>
+
+</body>
+</html>

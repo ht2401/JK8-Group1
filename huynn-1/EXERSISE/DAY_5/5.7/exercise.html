@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // bai 1
+    const sumOfListNumber = () => {
+        let m1 = [2, 3, 5, 8, 6, 9, 6, 7, 1];
+
+        let sum = m1.reduce((acc, currentValue) => acc + currentValue, 0);
+
+        console.log(sum);
+    }
+
+    const reverseAList = () => {
+        let m2 = ['s', 'n', 'o', 'i', 't', 'c', 'e', 'n', 'n', 'o', 'c', ' ', 'f', 'o', ' ', 'l', 'l', 'u', 'f', ' ', 'o', 's', 'l', 'a', ' ', 's', 'i', ' ', 't', 'i', ' ', 't', 'u', 'b', ' ', ',', 's', 'e', 'c', 'n', 'e', 'd', 'i', 'c', 'n', 'i', 'o', 'c', ' ', 'f', 'o', ' ', 'l', 'l', 'u', 'f', ' ', 's', 'i', ' ', 'e', 's', 'r', 'e', 'v', 'i', 'n', 'u', ' ', 'e', 'h', 'T'];
+
+        // Sử dụng phương thức reverse để đảo ngược thứ tự của mảng
+        m2.reverse();
+
+        console.log(m2);
+    }
+
+    const chuanHoaTen = (input) => {
+        // Chuyển tất cả các ký tự thành chữ thường
+        let lowercaseName = input.toLowerCase();
+        
+        // Tách chuỗi thành mảng các từ
+        let words = lowercaseName.split(' ');
+    
+        // Chuẩn hóa mỗi từ bằng cách viết hoa chữ cái đầu tiên
+        let normalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    
+        // Ghép các từ lại thành chuỗi và in ra console
+        let normalizedName = normalizedWords.join(' ');
+        console.log(normalizedName);
+    }
+    
+    // Test với tên nhập vào là "lE thI hUyeN mY"
+    chuanHoaTen("lE thI hUyeN mY");
+    
+</script>
+
+</html>

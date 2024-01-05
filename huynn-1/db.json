@@ -1,0 +1,172 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title"
+    },
+    {
+      "id": "2",
+      "title": "another title"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "name": "Ông già và biển cả",
+      "image": "",
+      "price": "50000",
+      "detail": "Tác giả không rõ tên"
+    },
+    {
+      "id": "2",
+      "name": "Dấu chân trên cát",
+      "image": "",
+      "price": "55000",
+      "detail": "Tác giả: Antoine de Saint-Exupéry"
+    },
+    {
+      "id": "3",
+      "name": "Cuốn theo chiều gió",
+      "image": "",
+      "price": "60000",
+      "detail": "Tác giả: Margaret Mitchell"
+    },
+    {
+      "id": "4",
+      "name": "Harry Potter và Hòn Đá Phù Thủy",
+      "image": "",
+      "price": "75000",
+      "detail": "Tác giả: J.K. Rowling"
+    },
+    {
+      "id": "5",
+      "name": "Những người khốn khổ",
+      "image": "",
+      "price": "45000",
+      "detail": "Tác giả: Victor Hugo"
+    },
+    {
+      "id": "6",
+      "name": "Chúa tể của những chiếc nhẫn",
+      "image": "",
+      "price": "80000",
+      "detail": "Tác giả: J.R.R. Tolkien"
+    },
+    {
+      "id": "7",
+      "name": "Bí mật của người may mắn",
+      "image": "",
+      "price": "70000",
+      "detail": "Tác giả: Paulo Coelho"
+    },
+    {
+      "id": "8",
+      "name": "Nghệ thuật tư duy",
+      "image": "",
+      "price": "60000",
+      "detail": "Tác giả: Mark Manson"
+    },
+    {
+      "id": "9",
+      "name": "Số Đỏ",
+      "image": "",
+      "price": "55000",
+      "detail": "Tác giả: Hồ Biểu Chanh"
+    },
+    {
+      "id": "10",
+      "name": "Đắc nhân tâm",
+      "image": "",
+      "price": "65000",
+      "detail": "Tác giả: Dale Carnegie"
+    },
+    {
+      "id": "11",
+      "name": "Thế giới Sophie",
+      "image": "",
+      "price": "70000",
+      "detail": "Tác giả: Jostein Gaarder"
+    },
+    {
+      "id": "12",
+      "name": "Anna Karenina",
+      "image": "",
+      "price": "85000",
+      "detail": "Tác giả: Lev Tolstoy"
+    }
+  ],
+  "userInfos": [
+    {
+      "userName": "john_doe",
+      "password": "john@123",
+      "role": "user"
+    },
+    {
+      "userName": "jane_smith",
+      "password": "jane@456",
+      "role": "admin"
+    },
+    {
+      "userName": "bob_jones",
+      "password": "bob@789",
+      "role": "user"
+    },
+    {
+      "userName": "alice_walker",
+      "password": "alice@987",
+      "role": "user"
+    },
+    {
+      "userName": "admin1",
+      "password": "admin@123",
+      "role": "admin"
+    },
+    {
+      "userName": "user1",
+      "password": "user@456",
+      "role": "user"
+    },
+    {
+      "userName": "manager1",
+      "password": "manager@789",
+      "role": "manager"
+    },
+    {
+      "userName": "guest1",
+      "password": "guest@987",
+      "role": "guest"
+    },
+    {
+      "userName": "developer1",
+      "password": "developer@123",
+      "role": "developer"
+    },
+    {
+      "userName": "tester1",
+      "password": "tester@456",
+      "role": "tester"
+    },
+    {
+      "userName": "analyst1",
+      "password": "analyst@789",
+      "role": "analyst"
+    },
+    {
+      "userName": "superuser1",
+      "password": "superuser@987",
+      "role": "superuser"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số chính phương</title>
+</head>
+<body>
+
+<h1>Kiểm tra số chính phương</h1>
+
+<label for="numberInput">Nhập số:</label>
+<input type="number" id="numberInput">
+<button onclick="checkPerfectSquare()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+    function isPerfectSquare(number) {
+        var sqrt = Math.sqrt(number);
+        return sqrt === parseInt(sqrt);
+    }
+
+    function checkPerfectSquare() {
+        var numberInput = document.getElementById("numberInput").value;
+        var resultElement = document.getElementById("result");
+
+        if (numberInput === "") {
+            resultElement.innerHTML = "Vui lòng nhập một số.";
+            return;
+        }
+
+        var number = parseFloat(numberInput);
+
+        if (number < 0) {
+            resultElement.innerHTML = "Số không thể là số chính phương vì nó là số âm.";
+        } else if (isPerfectSquare(number)) {
+            resultElement.innerHTML = "Đây là số chính phương.";
+        } else {
+            resultElement.innerHTML = "Không phải là số chính phương.";
+        }
+    }
+</script>
+
+</body>
+</html>
