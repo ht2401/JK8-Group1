@@ -1,0 +1,17 @@
+<p>list-of-book works!</p>
+<button (click)="getBooks()">Clink to get books</button>
+
+
+<!-- home.component.html -->
+    
+<div *ngIf="listOfBooks">
+    <h2>List of Books:</h2>
+    <ul>
+        <li *ngFor="let book of listOfBooks">
+            {{ book.name }} - {{ book.detail }}
+        </li>
+    </ul>
+</div>
+<div *ngIf="!listOfBooks">
+    <p>Loading...</p>
+</div>

@@ -1,0 +1,22 @@
+
+1. Có bốn kiểu nguyên thủy (primitive types) trong JavaScript, đó là:
+   - Number: Đại diện cho số học, cả số nguyên và số thập phân.
+   - String: Đại diện cho chuỗi ký tự.
+   - Boolean: Đại diện cho giá trị true hoặc false.
+   - Undefined: Đại diện cho một biến chưa được gán giá trị.
+   - Null: Đại diện cho một giá trị không tồn tại hoặc không hợp lệ.
+
+2. Để xem kiểu của một biến trong JavaScript, bạn có thể sử dụng toán tử `typeof`. Ví dụ:
+
+let myVar = 10;
+console.log(typeof myVar);
+
+3. `let` và `var` là hai cách để khai báo biến trong JavaScript, nhưng chúng có một số sự khác biệt:
+   - `let` được giới thiệu trong ES6 (ECMAScript 2015) và có phạm vi (scope) là block scope, tức là chỉ có thể truy cập được trong khối lệnh mà nó được khai báo.
+   - `var` có phạm vi là function scope hoặc global scope, tùy thuộc vào nơi nó được khai báo. `var` còn có thể được "hoisting" (đưa lên đầu) trong một hàm.
+
+4. `const` được sử dụng khi bạn muốn khai báo một hằng số, tức là một giá trị không thay đổi được sau khi đã được gán một lần. Một biến được khai báo bằng `const` không thể được gán lại giá trị mới.
+
+5. Kiểu object là kiểu tham chiếu trong JavaScript. Điều này có nghĩa là khi bạn gán một biến object cho một biến khác, bạn thực sự đang gán tham chiếu đến đối tượng, chứ không phải sao chép giá trị.
+
+6. `number` là kiểu tham trị trong JavaScript. Khi bạn gán một biến `number` cho một biến khác, bạn đang thực hiện một sao chép giá trị, chứ không phải tham chiếu đến giá trị.
