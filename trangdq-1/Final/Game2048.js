@@ -1,49 +1,64 @@
 const body = document.querySelector('body')
 const tiles = body.querySelectorAll('.tile')
+const score_display = body.querySelector('.score')
+const ping = body.querySelector('.ping')
+var score = 0
+var movable = true
+const directions = ['w', 'a', 's', 'd']
 
 // TODO: starter setup
 function init() {
-    popUpNewTile2();
-    popUpNewTile2();
+    popUpNewTile2()
+    popUpNewTile2()
     body.addEventListener('keydown', onKeyDown)
-    // tiles.forEach(tile => {
-    //     tile.classList.add('move')
-    // })
 }
 
 // TODO: handle event 
 function onKeyDown(e) {
-    const direction = e.key 
-    // TODO: find a way to activate the function based on direction
-    switch (direction) {
-        case 'w':
-        case 'ArrowUp':
-            tiles.forEach(tile => {
-                handleAction(tile, direction)
-            })
-            break
-        case 's':
-        case 'ArrowDown':
-            for (let i = tiles.length - 1; i >= 0; i--) {
-                handleAction(tiles[i], direction)
-            }
-            break
-        case 'a':
-        case 'ArrowLeft':
-            tiles.forEach(tile => {
-                handleAction(tile, direction)
-            })
-            break
-        case 'd':
-        case 'ArrowRight':
-            for (let i = tiles.length - 1; i >= 0; i--) {
-                handleAction(tiles[i], direction)
-            }
-            break
-    }
+    if (movable) {
+        const direction = e.key
+        // TODO: find a way to activate the function based on direction
+        switch (direction) {
+            case 'w':
+            case 'ArrowUp':
+            case 'a':
+            case 'ArrowLeft':
+                tiles.forEach(tile => {
+                    handleAction(tile, direction)
+                })
+                break
+            case 's':
+            case 'ArrowDown':
+            case 'd':
+            case 'ArrowRight':
+                for (let i = tiles.length - 1; i >= 0; i--) {
+                    handleAction(tiles[i], direction)
+                }
+                break
+        }
+        popUpNewTile2()
 
-    // popup new tile2
-    popUpNewTile2()
+        // TODO: end game now?
+
+        movable = false
+        for (let i = 0; i < tiles.length; i++) {
+            for (let j = 0; j < directions.length; j++) {
+                if (tiles[i].textContent === '' || detectClone(0, parseInt(tiles[i].id.slice(1)), tiles[i], directions[j])) {
+                    movable = true
+                    break
+                }
+            }
+            if (movable) break
+        }
+        if (!movable) {
+            setTimeout(() => {
+                let choice = confirm(`Điểm của bạn là: ${score}. Chơi lại chứ?`);
+                if (choice) {
+                    location.reload()
+                }
+            }, 500);
+        }
+    }
 }
 
 // TODO: handle action of each tile when keydown
@@ -103,10 +118,6 @@ function merge(tile, clone, direction) {
     tile.className = 'tile'
     toGreaterValue(clone)
     move(clone, direction)
-    // !CASE: when 4 tiles merged to 2 tiles with similar value
-    if (detectClone(0, parseInt(clone.id.slice(1)), clone, direction)) {
-        move(clone, direction)
-    }
 }
 
 // TODO: update value of a tile
@@ -114,10 +125,15 @@ function toGreaterValue(tile) {
     if (tile.textContent) {
         const new_value = parseInt(tile.textContent) * 2
         const old_value = tile.textContent
-        console.log(new_value);
         tile.textContent = new_value
         tile.classList.add(`tile${new_value}`)
         tile.classList.remove(`tile${old_value}`)
+        // TODO: 
+        updateScore(new_value)
+        if (new_value === 2048) {
+            // TODO: end game
+            alert(`chúc mừng bạn đã phá đảo trò chơi! Điểm của bạn là ${score}`)
+        }
     }
 }
 
@@ -168,17 +184,29 @@ function detectEnd(end_id, id, direction, pre_tile) {
 
 // TODO: popup new tile2
 function popUpNewTile2() {
-    let empty_tiles = []
+    const empty_tiles = []
     tiles.forEach(tile => {
         if (!tile.textContent) empty_tiles.push(tile)
     })
-    let random_index = Math.floor(Math.random() * (empty_tiles.length))
-    empty_tiles[random_index].textContent = '2'
-    empty_tiles[random_index].classList.add('tile2')
-    empty_tiles[random_index].classList.add('popup')
-    empty_tiles[random_index].addEventListener('transitionend', (e) => {
-        empty_tiles[random_index].classList.remove('popup')
+    if (empty_tiles.length !== 0) {
+        const random_index = Math.floor(Math.random() * (empty_tiles.length))
+        empty_tiles[random_index].textContent = '2'
+        empty_tiles[random_index].classList.add('tile2')
+        empty_tiles[random_index].classList.add('popup')
+        empty_tiles[random_index].addEventListener('transitionend', () => {
+            empty_tiles[random_index].classList.remove('popup')
+        })
+    }
+}
+
+function updateScore(value) {
+    ping.textContent = "+" + value
+    ping.classList.add('ping-then-fade')
+    ping.addEventListener('transitionend', () => {
+        ping.classList.remove('ping-then-fade')
     })
+    score += value
+    score_display.textContent = score.toString()
 }
 
 init()
