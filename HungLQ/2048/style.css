@@ -56,7 +56,7 @@ body{
     flex-wrap: wrap;
 }
 
-.tile {
+.box {
     width: 90px;
     height: 90px;
     border: 5px solid #bbada0;

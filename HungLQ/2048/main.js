@@ -1,12 +1,11 @@
 var board;
 var score = 0;
-var rows = 4;
-var columns = 4;
+const rows = 4;
+const columns = 4;
 localStorage.setItem("highestScore",0);
 
 
-function setGame() {
-
+function initGame() {
     board = [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
@@ -16,28 +15,27 @@ function setGame() {
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
-            let tile = document.createElement("div");
-            tile.id = r.toString() + "-" + c.toString();
+            let box = document.createElement("div");
+            box.id = r.toString() + "-" + c.toString();
             let num = board[r][c];
-            updateTile(tile, num);
-            document.getElementById("board").append(tile);
+            updateBox(box, num);
+            document.getElementById("board").append(box);
         }
     }
-    setTwo();
-    setTwo();
-
+    addBlock();
+    addBlock();
 }
 
-function updateTile(tile, num) {
-    tile.innerText = "";
-    tile.classList.value = "";
-    tile.classList.add("tile");
+function updateBox(box, num) {
+    box.innerText = "";
+    box.classList.value = "";
+    box.classList.add("box");
     if (num > 0) {
-        tile.innerText = num.toString();
+        box.innerText = num.toString();
         if (num <= 4096) {
-            tile.classList.add("x"+num.toString());
+            box.classList.add("x"+num.toString());
         } else {
-            tile.classList.add("x8192");
+            box.classList.add("x8192");
         }
     }
 }
@@ -45,32 +43,32 @@ function updateTile(tile, num) {
 document.addEventListener('keyup', (e) => {
     if (e.code == "ArrowLeft") {
         slideLeft();
-        setTwo();
+        addBlock();
     }
     else if (e.code == "ArrowRight") {
         slideRight();
-        setTwo();
+        addBlock();
     }
     else if (e.code == "ArrowUp") {
         slideUp();
-        setTwo();
+        addBlock();
 
     }
     else if (e.code == "ArrowDown") {
         slideDown();
-        setTwo();
+        addBlock();
     }
     checkGameOver();
     document.getElementById("score").innerText = score;
 })
 
-function filterZero(row){
+function removeZero(row){
     return row.filter(num => num != 0);
 }
 
 function slide(row) {
     
-    row = filterZero(row);
+    row = removeZero(row);
     for (let i = 0; i < row.length-1; i++){
         if (row[i] == row[i+1]) {
             row[i] *= 2;
@@ -81,7 +79,7 @@ function slide(row) {
 
         }
     }
-    row = filterZero(row);
+    row = removeZero(row);
     
     while (row.length < columns) {
         row.push(0);
@@ -95,9 +93,9 @@ function slideLeft() {
         row = slide(row);
         board[r] = row;
         for (let c = 0; c < columns; c++){
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let box = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
-            updateTile(tile, num);
+            updateBox(box, num);
         }
     }
 }
@@ -109,9 +107,9 @@ function slideRight() {
         row = slide(row)            
         board[r] = row.reverse();   
         for (let c = 0; c < columns; c++){
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let box = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
-            updateTile(tile, num);
+            updateBox(box, num);
         }
     }
 }
@@ -122,9 +120,9 @@ function slideUp() {
         row = slide(row);
         for (let r = 0; r < rows; r++){
             board[r][c] = row[r];
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let box = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
-            updateTile(tile, num);
+            updateBox(box, num);
         }
     }
 }
@@ -138,15 +136,15 @@ function slideDown() {
         
         for (let r = 0; r < rows; r++){
             board[r][c] = row[r];
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let box = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
-            updateTile(tile, num);
+            updateBox(box, num);
         }
     }
 }
 
-function setTwo() {
-    if (!hasEmptyTile()) {
+function addBlock() {
+    if (!hasEmptyBox()) {
         return;
     }
     let found = false;
@@ -155,16 +153,18 @@ function setTwo() {
         let r = Math.floor(Math.random() * rows);
         let c = Math.floor(Math.random() * columns);
         if (board[r][c] == 0) {
-            board[r][c] = 2;
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
-            tile.innerText = "2";
-            tile.classList.add("x2");
+            let x = Math.floor(Math.random() * 2) + 1;
+            x *=2;
+            board[r][c] = x;
+            let box = document.getElementById(r.toString() + "-" + c.toString());
+            box.innerText = x;
+            box.classList.add("x" + x);
             found = true;
         }
     }
 }
 
-function hasEmptyTile() {
+function hasEmptyBox() {
     let count = 0;
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
@@ -209,7 +209,7 @@ document.getElementById("restart-btn").addEventListener("click",e =>{
         cboard.removeChild(remove);
         remove = cboard.lastElementChild;
     }
-    setGame();
+    initGame();
 })
 
-setGame();
+initGame();

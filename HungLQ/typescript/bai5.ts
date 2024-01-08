@@ -7,10 +7,13 @@ class Retangle {
         this.width = width;
     }
 
-    getArea():number{
+
+    getArea(num?:number, int?:number):number | undefined{
+        if(num && int) return 1;
         return this.height* this.width;
+        if(num && int) return 1;
     }
 }
 
 let square = new Retangle(4,4);
-console.log(square.getArea())
+console.log(square.getArea(1,2))
