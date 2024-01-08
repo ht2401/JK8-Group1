@@ -3,16 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="main.js"></script>
+    <title>Form Validation</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: block;
+        }
+        span{
+            margin-left: 20px;
+        }
+        label{
+            width: 100px;
+        }
+        input{
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
-    <form id="myForm" onsubmit="validateForm()">
-        <label for="name">Name: </label><input id="name" type="text" required/><br>
-        <label for="email">Email: </label><input id="email" type="email" required pattern="[a-z]@gmail.com"/><br>
-        <label for="url">Website: </label><input id="url" type="url" required/><br>
-        <label for="message">Message: </label><textarea id="message" type="text" required></textarea><br>
-        <button id="submitBtn" type="submit">Nhập</button>
+    <form id="myForm">
+        <div style="display: flex; margin-bottom: 20px;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><span class="error-message" id="nameError"></span>
+        </div>
+
+        <div style="display: flex; margin-bottom: 20px;">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><span class="error-message" id="emailError"></span>
+        </div>
+
+        <div style="display: flex; margin-bottom: 20px;">
+            <label for="website">Website:</label> 
+            <input type="text" id="website" name="website" Wequired><span class="error-message" id="websiteError"></span>
+        </div>
+
+        <div style="display: flex; margin-bottom: 20px;">
+            <label for="message">Message</label>
+            <input style="height: 100px;" type="text" id="message" name="message" required><span class="error-message" id="messageError"></span>
+        </div>
+
+        <button type="button" onclick="validateForm()">Submit</button>
     </form>
+
+    <script src="main.js"></script>
 </body>
 </html>

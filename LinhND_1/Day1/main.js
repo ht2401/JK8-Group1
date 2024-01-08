@@ -81,5 +81,41 @@ function isSquareNumber(x){
 
 console.log(isSquareNumber(9))
 
+function validateForm() {
+    document.getElementById('nameError').innerText = '';
+    document.getElementById('emailError').innerText = '';
+    document.getElementById('websiteError').innerText = '';
+    document.getElementById('messageError').innerText = '';
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var website = document.getElementById('website').value;
+    var message = document.getElementById('message').value;
+
+    var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var websiteRegExp = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+
+    if (name === '') {
+        document.getElementById('nameError').innerText = 'This field is required.';
+        document.getElementById('name').setAttribute("style", "border:2px solid red");
+    }
+
+    if (email === '' || !email.match(emailPattern)) {
+        document.getElementById('emailError').innerText = 'A valid email address is required.';
+        document.getElementById('email').setAttribute("style", "border:2px solid red");
+    }
+
+    if (website === '' || !website.match(websiteRegExp)) {
+        document.getElementById('websiteError').innerText = 'A valid url is required.';
+        document.getElementById('website').setAttribute("style", "border:2px solid red");
+    }
+
+    if (message === '') {
+        document.getElementById('messageError').innerText = 'This field is required.';
+        document.getElementById('message').setAttribute("style", "border:2px solid red");
+    }
+
+}
+
 
 
