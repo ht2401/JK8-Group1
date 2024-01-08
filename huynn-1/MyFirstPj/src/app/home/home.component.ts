@@ -1,22 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HomeServices } from '../services/homeServices';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ListOfBookComponent } from './list-of-book/list-of-book.component';
+import { Book } from '../services/interfaces/book';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [CommonModule, ListOfBookComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent  {
+export class HomeComponent {
 
-  public name1: string = "huynem";
-
-  public alertHello(): void {
-    alert("ccc");
-  }
-
-  
 }

@@ -5,17 +5,17 @@ import { LoginComponent } from './login/login.component';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-    },
-    {
-        path: 'home',
-        title: "home",
-        component: HomeComponent
+        redirectTo: 'login',
+        pathMatch: 'prefix'
     },
     {
         path: 'login',
         title: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+    },
+    {
+        path: 'home',
+        title: 'home',
+        component: HomeComponent
     }
 ];
