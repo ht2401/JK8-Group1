@@ -34,9 +34,9 @@ export class LoginComponent {
     try {
       let users: UserInfos[] = await this.userServices.getAllUsers();
       let userInfo: UserInfos | undefined = users.find((user) => user.userName === this.username && this.password);
-      if (userInfo?.role === "admin") {
+      if (userInfo?.role === "ADMIN") {
         this.router.navigateByUrl('/home');
-        alert(true);
+        alert("Hello "+ userInfo.userName);
       }
     } catch (error) {
       console.error(error);

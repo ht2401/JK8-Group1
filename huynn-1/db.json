@@ -1,26 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "a title"
-    },
-    {
-      "id": "2",
-      "title": "another title"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    }
-  ],
   "books": [
     {
       "id": "1",
@@ -116,56 +94,6 @@
     {
       "userName": "user",
       "password": "123",
-      "role": "USER"
-    },
-    {
-      "userName": "bob_jones",
-      "password": "bob@789",
-      "role": "USER"
-    },
-    {
-      "userName": "alice_walker",
-      "password": "alice@987",
-      "role": "USER"
-    },
-    {
-      "userName": "admin1",
-      "password": "123",
-      "role": "ADMIN"
-    },
-    {
-      "userName": "user1",
-      "password": "123",
-      "role": "USER"
-    },
-    {
-      "userName": "manager1",
-      "password": "manager@789",
-      "role": "USER"
-    },
-    {
-      "userName": "guest1",
-      "password": "guest@987",
-      "role": "USER"
-    },
-    {
-      "userName": "developer1",
-      "password": "developer@123",
-      "role": "USER"
-    },
-    {
-      "userName": "tester1",
-      "password": "tester@456",
-      "role": "USER"
-    },
-    {
-      "userName": "analyst1",
-      "password": "analyst@789",
-      "role": "USER"
-    },
-    {
-      "userName": "superuser1",
-      "password": "superuser@987",
       "role": "USER"
     }
   ]
