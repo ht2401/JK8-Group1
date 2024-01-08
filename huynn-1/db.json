@@ -109,64 +109,64 @@
   ],
   "userInfos": [
     {
-      "userName": "john_doe",
-      "password": "john@123",
-      "role": "user"
+      "userName": "admin",
+      "password": "123",
+      "role": "ADMIN"
     },
     {
-      "userName": "jane_smith",
-      "password": "jane@456",
-      "role": "admin"
+      "userName": "user",
+      "password": "123",
+      "role": "USER"
     },
     {
       "userName": "bob_jones",
       "password": "bob@789",
-      "role": "user"
+      "role": "USER"
     },
     {
       "userName": "alice_walker",
       "password": "alice@987",
-      "role": "user"
+      "role": "USER"
     },
     {
       "userName": "admin1",
-      "password": "admin@123",
-      "role": "admin"
+      "password": "123",
+      "role": "ADMIN"
     },
     {
       "userName": "user1",
-      "password": "user@456",
-      "role": "user"
+      "password": "123",
+      "role": "USER"
     },
     {
       "userName": "manager1",
       "password": "manager@789",
-      "role": "manager"
+      "role": "USER"
     },
     {
       "userName": "guest1",
       "password": "guest@987",
-      "role": "guest"
+      "role": "USER"
     },
     {
       "userName": "developer1",
       "password": "developer@123",
-      "role": "developer"
+      "role": "USER"
     },
     {
       "userName": "tester1",
       "password": "tester@456",
-      "role": "tester"
+      "role": "USER"
     },
     {
       "userName": "analyst1",
       "password": "analyst@789",
-      "role": "analyst"
+      "role": "USER"
     },
     {
       "userName": "superuser1",
       "password": "superuser@987",
-      "role": "superuser"
+      "role": "USER"
     }
   ]
 }
