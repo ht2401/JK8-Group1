@@ -1,13 +1,20 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2017",
-        "declaration": true, 
+        "module": "CommonJS",
+        "target": "ES2016",
+        "noEmitOnError": true,
+        "strictNullChecks": true,
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "noFallthroughCasesInSwitch": true,
-        "noEmitOnError": true
-    } 
+        "esModuleInterop": true,
+        "moduleResolution": "Node", 
+        // "emitDecoratorMetadata": true,
+        // "declaration": true, 
+        // "strict": true,
+        // "forceConsistentCasingInFileNames": true,
+        // "noFallthroughCasesInSwitch": true,
+    },
+    "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node"
+    }
 }

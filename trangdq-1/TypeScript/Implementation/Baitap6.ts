@@ -1,50 +1,58 @@
 // Bài 6: Viết một decorator để log thông tin mỗi khi một phương thức của một lớp được gọi.
 
 class Square {
-    edge: number
+    edge: number;
+
     constructor(edge: number) {
-        this.edge = edge
-        this.printInfo = this.printInfo.bind(this)
+        this.edge = edge;
+        this.printInfo = this.printInfo.bind(this); // Correctly bind `this` to `printInfo`
     }
 
+    @log()
     calcArea(): number {
-        return this.edge * this.edge
+        return this.edge * this.edge;
     }
 
+    @log()
     calcPerimeter(): number {
-        return this.edge * 4
+        return this.edge * 4;
     }
 
-    printInfo(): void {
-        console.log(`Hình vuông cạnh ${this.edge}cm có chu vi ${this.calcPerimeter()}cm và diện tích ${this.calcArea()}cm2`);
+    @log()
+    printInfo(vnese: boolean): void {
+        if (vnese) {
+            console.log(`Hình vuông cạnh ${this.edge}cm có chu vi ${this.calcPerimeter()}cm và diện tích ${this.calcArea()}cm2`);
+        } else {
+            console.log(`The square with the edge of ${this.edge}cm have the perimeter = ${this.calcPerimeter()}cm and the area = ${this.calcArea()}cm2`);
+
+        }
     }
 }
 
-class SquareDecorator extends Square {
-    constructor(square: Square) {
-        super(square.edge);
-        console.log(`>> Constructor khởi tạo Square cạnh ${square.edge}`);
-    }
+// function log<T>(): Function {
+//     return function (...params: T[]): T {
+//         const name = method.name;
+//         const parameters = params.join(", ");
+//         const values = params.map((param) => JSON.stringify(param)).join(", "); // Use `map` and `JSON.stringify` for accurate value representation
+//         console.log(`Gọi method ${name}: ${parameters}, ${values}`);
+//         return method(...params);
+//     };
+// }
 
-    calcArea(): number {
-        console.log(">> Method calcArea() đang tính diện tích hình vuông...");
-        return super.calcArea()
-    }
-
-    calcPerimeter(): number {
-        console.log(">> Method calcPerimeter() đang tính chu vi hình vuông...");
-        return super.calcPerimeter()
-    }
-
-    
-    printInfo(): void {
-        console.log(">> Method printInfo() đang in thông tin của hình vuông...");
-        super.printInfo()
+function log() {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        const originalMethod = descriptor.value;
+        descriptor.value = function (...args: any) {
+            const parameters = args.join()
+            console.log(`Gọi method ${propertyKey}(). Input: {${parameters}}`);
+            return originalMethod.apply(this, args);
+        }
     }
 }
 
-const square: Square = new Square(5)
-const decorator: SquareDecorator = new SquareDecorator(square)
-console.log(decorator.calcArea())
-console.log(decorator.calcPerimeter())
-decorator.printInfo()
+
+
+const square: Square = new Square(5);
+console.log(square.calcArea());
+console.log(square.calcPerimeter());
+square.printInfo(true);
