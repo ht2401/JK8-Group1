@@ -1,1 +1,0 @@
-// Bài 8: Tạo một module chia sẻ các hàm tiện ích như tính giai thừa, kiểm tra số nguyên tố.
