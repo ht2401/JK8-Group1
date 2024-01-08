@@ -1,0 +1,31 @@
+Cau 1: Kiểu Nguyên Thủy:
+
+    Có 7 kiểu dữ liệu nguyên thủy trong JavaScript:
+        Number: Số, bao gồm cả số nguyên và số thập phân.
+        String: Chuỗi ký tự.
+        Boolean: Giá trị true hoặc false.
+        Null: Đại diện cho giá trị null hoặc không có giá trị.
+        Undefined: Biến chưa được định nghĩa giá trị.
+        Symbol: Kiểu dữ liệu mới được thêm vào trong ECMAScript 6.
+        BigInt: Kiểu số lớn, được thêm vào trong ECMAScript 2020 để xử lý số lớn hơn giới hạn của kiểu Number.
+
+Cau 2: Xem kiểu của một biến: sử dụng typeof
+    let x = 10;
+    console.log(typeof x);
+
+Cau 3: let vs var:
+
+    var: Khai báo biến với phạm vi là function-scoped (hoặc global-scoped nếu ở ngoài hàm).
+    let: Khai báo biến với phạm vi là block-scoped, chỉ tồn tại trong block (ví dụ, giữa cặp ngoặc nhọn {}).
+    Sự khác biệt chính giữa let và var đó là let giữ phạm vi biến chỉ trong block, trong khi var giữ phạm vi biến trong hàm.
+
+Cau 4: Khi nào sử dụng const:
+
+    Khi ta muốn khai báo một biến với giá trị không thay đổi (immutable).
+    Một biến được khai báo bằng const không thể được gán lại một giá trị mới sau khi đã được gán giá trị ban đầu.
+
+Cau 5: Kiểu object là kiểu tham chiếu hay tham trị:
+    Kiểu object trong JavaScript là kiểu tham chiếu. Điều này có nghĩa là khi bạn gán một biến object cho một biến khác, thì cả hai biến sẽ trỏ đến cùng một đối tượng trong bộ nhớ.
+
+Cau 6: Number là kiểu tham chiếu hay tham trị:
+    Number là kiểu dữ liệu nguyên thủy trong JavaScript, và nó là kiểu tham trị. Khi bạn gán một biến Number cho một biến khác, bạn tạo ra một bản sao của giá trị, và sự thay đổi ở một biến không ảnh hưởng đến biến khác.
