@@ -30,7 +30,7 @@
     </form>
     <script>
         function checkError(title){
-                if(document.getElementById(title).value == ""){
+                if(!Boolean(document.getElementById(title).value)){
                 error = title+"-error"
                 document.getElementById(error).innerHTML = "This field is required";
                 }

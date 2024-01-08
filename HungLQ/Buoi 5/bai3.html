@@ -8,8 +8,8 @@
 <body>
     <script>
         function chuanHoaTen(input) {
-        var words = input.toLowerCase().split(' ');
-
+        var words = input.toLowerCase().trim().split(' ');
+            
         for (var i = 0; i < words.length; i++) {
             words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
         }
