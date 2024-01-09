@@ -1,22 +1,36 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouteConfigLoadStart, RouterEvent, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListOfBookComponent } from './home/list-of-book/list-of-book.component';
 import { LoginComponent } from './login/login.component';
-import { routes } from './app.routes';
-import { Router } from 'express';
+import { AdminComponent } from './admin/admin.component';
+import { AddBookComponent } from './admin/crud-book-ui/add-book/add-book.component';
+import { NgbModal, NgbModule, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    NgbModule,
     RouterModule,
     HomeComponent,
     ListOfBookComponent,
-    LoginComponent],
+    LoginComponent,
+    AdminComponent,
+    AddBookComponent],
+  providers: [NgbModalConfig, NgbModal],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'MyFirstPj';
+
+  constructor(config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
+
+  open(content: TemplateRef<any>) {
+    this.modalService.open(content);
+  }
 }

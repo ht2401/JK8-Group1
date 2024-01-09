@@ -7,40 +7,49 @@ import {
   FormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginResponse } from '../services/responses/authenticationResponse';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
+  providers: [AuthenticationServices, UserService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  private loginServices = inject(AuthenticationServices);
+  private authenticationServices = inject(AuthenticationServices);
 
   private userServices = inject(UserService);
 
-  // private listOfUsers: UserInfos[] | undefined;
+  private router = inject(Router);
 
   public username: string = "";
 
   public password: string = "";
 
-  constructor(private router: Router) {
+  private listOfUser: UserInfos[] = [];
+
+  constructor() {
   }
 
-  public async login() {
-    try {
-      let users: UserInfos[] = await this.userServices.getAllUsers();
-      let userInfo: UserInfos | undefined = users.find((user) => user.userName === this.username && this.password);
-      if (userInfo?.role === "ADMIN") {
-        this.router.navigateByUrl('/home');
-        alert("Hello "+ userInfo.userName);
-      }
-    } catch (error) {
-      console.error(error);
+  ngOnInit(): void {
+    this.userServices.getUsers().subscribe({
+      next: value => this.listOfUser = value,
+      error: err => console.log(err)
+    });
+  }
+
+  public login() {
+    let user = this.listOfUser.find((user) => user.userName === this.username && this.password === this.password);
+    if (user?.role === "ADMIN") {
+      alert("Hello " + this.username);
+      this.router.navigateByUrl("/admin");
+    } else if (user?.role === "USER") {
+      this.router.navigateByUrl("/home");
     }
   }
- 
+  
 }
