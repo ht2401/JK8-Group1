@@ -1,6 +1,18 @@
-import { log } from "console";
+function logInformation(value: number) {
+    return function (target: Rectangle, propertyName: string, descriptor: PropertyDescriptor) {
+      const method = descriptor.value;
+  
+      descriptor.value = function (...args: any[]) {
+        console.log(`Logging information: ${value}`);
+        const result = method.apply(this, ...args);
+        console.log(result);
+        return result;
+      };
+    };
+  }
 
 export class Rectangle{
+    
     length: number = 0;
     width: number = 0;
 
@@ -35,15 +47,6 @@ export class Rectangle{
 
 }
 
-function logInformation(value: number){
-    return function(target: Rectangle, propertyName: string, descriptor: PropertyDescriptor){
-        const method = descriptor.value;
-        descriptor.value = (...args: any[]) =>{
-            console.log(value);
-            return value;
-        }
-    }
-}
 
 const rectangle: Rectangle = new Rectangle(6, 12);
 
