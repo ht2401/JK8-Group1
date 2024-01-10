@@ -13,7 +13,7 @@
 </div> -->
 
 <!-- ng-template : reduce line code run by break to 2 branches -->
-<ng-template #empty> 
+<ng-template #empty>
     <div *ngIf="age == 0; else young"></div>
 </ng-template>
 <ng-template #young>
@@ -30,22 +30,39 @@
 <div><button (click)="reset()">Help me pls...</button></div>
 
 <!-- *ngFor -->
-<p *ngFor = "let fruit of fruits; let i = index">{{i+1}}. {{fruit}}</p>
+<p *ngFor="let fruit of fruits; let i = index">{{i+1}}. {{fruit}}</p>
 
-<!-- TODO: 2.3 exercise -->
+<!-- 2.3 exercise -->
 <table>
-    <tr>
-        <th>ID</th>
-        <th>Product Name</th>
-        <th>Product Price</th>
-        <th>Discount?</th>
-    </tr>
-    <tr *ngFor = "let p of fruits_price; let i = index">
-        <td>{{i+1}}</td>
-        <td>{{p.name}}</td>
-        <td [ngClass]="{'negative': p.price < 0}">${{p.price}}</td>
-        <td *ngIf="p.discount">x</td>
-    </tr>
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Discounted</th>
+        </tr>
+        <tr *ngFor="let p of fruits_price; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{p.name | uppercase}}</td>
+            <td [ngClass]="{'negative': p.price < 0}">{{ p.price | currency : 'USD' : 'symbol' : '4.2-2'}}</td>
+            <td>{{p.discount | onSale}}</td>
+        </tr>
+    </tbody>
 </table>
 
-
+<!-- 2.5 exercise -->
+<div>
+    <p>Tỉnh/Thành phố:</p>
+    <select (change)="changeCity($event)">
+        <option *ngFor="let data of cities_map" value="{{data.city}}">
+            {{data.city}}
+        </option>
+    </select>
+    <br>
+    <p>Quận/Huyện:</p>
+    <select>
+        <option *ngFor="let data of districts" value="{{districts}}">
+            {{data}}
+        </option>
+    </select>
+</div>

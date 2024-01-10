@@ -1,0 +1,17 @@
+<span appHighLight>Call ambulance...</span><br>
+<span [appHighLight]="color">Call ambulance...</span><br>
+<span [appHighLight]="'blue'">Call ambulance...</span>
+
+<hr> 
+
+<ul [ngSwitch]="role">
+    <li *ngSwitchCase="'user'">
+        Hello, {{loginName}}! How can I help you?
+    </li>
+    <li *ngSwitchCase="'admin'">
+        Admin: What are you doing here?
+    </li>
+    <li *ngSwitchDefault>
+        Who are you?
+    </li>
+</ul>
