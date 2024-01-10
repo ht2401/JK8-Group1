@@ -1,0 +1,51 @@
+<!-- binding : from code to html -->
+<h1 [title]="message + ' from UFO'">{{ message }}</h1>
+
+<p>Don't worry... :v We're already here... How old are you?</p>
+
+<!-- realtime update -->
+<p><input title="Type your age..." type="number" [(ngModel)]="age" /></p>
+
+<!-- *ngIf -->
+<!-- <div>
+    <p *ngIf="age <= 18">:D People says that kid meat is yummy~</p>
+    <p *ngIf="age > 18">:D You are too old for the joke.</p>
+</div> -->
+
+<!-- ng-template : reduce line code run by break to 2 branches -->
+<ng-template #empty> 
+    <div *ngIf="age == 0; else young"></div>
+</ng-template>
+<ng-template #young>
+    <p>Ok~</p>
+</ng-template>
+<ng-template #old>
+    <p>No. :D</p>
+</ng-template>
+
+<div *ngIf="age < 18; then empty; else old">
+</div>
+
+<!-- handle event click -->
+<div><button (click)="reset()">Help me pls...</button></div>
+
+<!-- *ngFor -->
+<p *ngFor = "let fruit of fruits; let i = index">{{i+1}}. {{fruit}}</p>
+
+<!-- TODO: 2.3 exercise -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Discount?</th>
+    </tr>
+    <tr *ngFor = "let p of fruits_price; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{p.name}}</td>
+        <td [ngClass]="{'negative': p.price < 0}">${{p.price}}</td>
+        <td *ngIf="p.discount">x</td>
+    </tr>
+</table>
+
+
