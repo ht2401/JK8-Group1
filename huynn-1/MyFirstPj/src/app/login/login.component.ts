@@ -47,13 +47,37 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    let user = this.listOfUser.find((user) => user.userName === this.username && this.password === this.password);
-    if (user?.role === "ADMIN") {
-      alert("Hello " + this.username);
-      this.router.navigateByUrl("/admin");
-    } else if (user?.role === "USER") {
-      this.router.navigateByUrl("/home");
+
+    if (this.username == '') {
+      this.usernameErr = 'Vui lòng nhập trường này';
+      return;
     }
+
+    this.usernameErr = '';
+
+    if (this.validatePassword(this.password) !== '') {
+      this.passworrdErr = this.validatePassword(this.password);
+      return;
+    }
+
+    this.passworrdErr = '';
+
+    let user = this.listOfUser.find((user) => user.userName === this.username && this.password === this.password);
+
+    if (user) {
+      if (user?.role === "ADMIN") {
+        alert("Hello " + this.username);
+        this.router.navigateByUrl("/admin");
+        return;
+      } else if (user?.role === "USER") {
+        this.router.navigateByUrl("/home");
+        return;
+      }
+    } else {
+      alert("Người dùng không tồn tại");
+      return;
+    }
+    
   }
 
   public validatePassword(password: string): string {

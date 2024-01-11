@@ -143,6 +143,18 @@
       "publishedDate": "2024-06-12",
       "bookType": "children",
       "publisher": "Puffin Books"
+    },
+    {
+      "id": "AJW7oJp",
+      "name": "123",
+      "author": "123",
+      "bookType": "123",
+      "detail": "",
+      "image": "C:\\fakepath\\Screenshot 2023-11-02 171128.png",
+      "price": 123,
+      "publishedDate": "2024-01-27",
+      "publisher": "123",
+      "quantity": 123
     }
   ],
   "userInfos": [
