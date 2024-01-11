@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddBookComponent } from './admin/crud-book-ui/add-book/add-book.component';
 import { NgbModal, NgbModule, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
+import { BookDetailComponent } from './home/book-detail/book-detail.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,7 +18,8 @@ import { NgbModal, NgbModule, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap'
     ListOfBookComponent,
     LoginComponent,
     AdminComponent,
-    AddBookComponent],
+    AddBookComponent,
+    BookDetailComponent],
   providers: [NgbModalConfig, NgbModal],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
