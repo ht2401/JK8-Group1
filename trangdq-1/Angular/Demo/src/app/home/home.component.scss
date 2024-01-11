@@ -1,7 +1,15 @@
-table, td, th {
+table,
+th,
+td {
     border-collapse: collapse;
     border: solid black 1px;
     padding: 5px;
+}
+
+.none_tb,
+.none_tb th,
+.none_tb td {
+    border-style: none;
 }
 
 .negative {

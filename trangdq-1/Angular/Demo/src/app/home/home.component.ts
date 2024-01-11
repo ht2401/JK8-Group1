@@ -12,6 +12,18 @@ export class HomeComponent implements OnInit {
   public text = ""
   public fruits = ["Apple", "Grape", "Orange"]
 
+  constructor() {}
+
+  public reset() {
+    console.log("Just kidding~");
+    this.age = 0
+  }
+
+  public displayFruits() {
+    return this.fruits
+  }
+
+
   // 2.3 exercise
   public fruits_price = [
     { "name": "Apple", "price": 1, "discount": true },
@@ -26,10 +38,6 @@ export class HomeComponent implements OnInit {
     { "city": "Nghệ An", "districts": ["Tuyên Quang", "Vinh"] }
   ]
   public districts: Array<string> = ["--- Chọn quận, huyện ---"]
-
-  constructor() { }
-
-  // 2.5 exercise (cont)
   public changeCity(event: any): void {
     let current: string = event.currentTarget.value
     let index = 0
@@ -43,15 +51,13 @@ export class HomeComponent implements OnInit {
     this.districts.unshift("--- Chọn quận, huyện ---")
   }
 
-
-
-  public reset() {
-    console.log("Just kidding~");
-    this.age = 0
-  }
-
-  public displayFruits() {
-    return this.fruits
+  // test lifecycle hook
+  public isShowing: boolean = true;
+  public num1: number = 0;
+  public num2: number = 0;
+  public total: number = 0;
+  totalNumber() {
+    this.total = this.num1 + this.num2;
   }
 
   ngOnInit(): void { }

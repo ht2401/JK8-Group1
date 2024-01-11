@@ -1,9 +1,5 @@
-<span appHighLight>Call ambulance...</span><br>
-<span [appHighLight]="color">Call ambulance...</span><br>
-<span [appHighLight]="'blue'">Call ambulance...</span>
-
-<hr> 
-
+<h2>Receive Information</h2>
+<!-- *ngSwitch -->
 <ul [ngSwitch]="role">
     <li *ngSwitchCase="'user'">
         Hello, {{loginName}}! How can I help you?
@@ -15,3 +11,10 @@
         Who are you?
     </li>
 </ul>
+
+<!-- custom style by directives -->
+<div class="container">
+    <span appHighLight>Call ambulance...</span><br>
+    <span [appHighLight]="color">Call ambulance...</span><br>
+    <span [appHighLight]="'blue'">Call ambulance...</span>
+</div>
