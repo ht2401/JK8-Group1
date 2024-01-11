@@ -7,7 +7,7 @@
                 <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                     <div class="logo">
                         <a>
-                            <img src="../images/logo/logo.png" alt="logo images">
+                            <img src="https://res.cloudinary.com/ddmdpbsoc/image/upload/v1704955639/logo_wgnbdl.png" alt="logo images">
                         </a>
                     </div>
                 </div>
@@ -48,30 +48,15 @@
 
                     <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                         <li class="shop_search"><a class="search__active" href="#"></a></li>
-                        <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
-                            <div class="searchbar__content setting__block">
-                                <div class="content-inner">
-
-
-                                    <div class="switcher-currency">
-                                        <strong class="label switcher-label">
-                                            <span>Tài khoản của tôi</span>
-                                        </strong>
-                                        <div class="switcher-options">
-                                            <div class="switcher-currency-trigger">
-                                                <div class="setting__menu">
-                                                    <span><a href="#" onclick="thongTinMuonTraBtn1()">Thông tin cá nhân</a></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="switcher-options">
-                                            <div class="switcher-currency-trigger">
-                                                <div class="setting__menu">
-                                                    <span><a href="#" onclick="dangXuatBtn()">Đăng xuất</a></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                   <fa-icon [icon]="faUser"></fa-icon>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-right: 100px;">
+                                    <a class="dropdown-item" routerLink=""  href="">Thông tin các nhân</a>
+                                    <a class="dropdown-item" routerLink="/login">Đăng xuất</a>
                                 </div>
                             </div>
                         </li>
