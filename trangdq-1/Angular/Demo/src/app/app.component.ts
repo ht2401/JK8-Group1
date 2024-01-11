@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  public title = 'Angular Project';
+  public title = 'Angular Demo';
   public isShowing: boolean = true;
 
   public num1: number = 0;
