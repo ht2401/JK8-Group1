@@ -23,18 +23,20 @@
             </div>
             <div class="form-group">
                 <label for="giaSach">Giá:</label>
-                <input [(ngModel)]="price" value="{{ book.price }}" type="number" class="form-control" id="giaSach" name="giaSach" min="0"
-                    step="0.01" th:field="*{giaTien}">
+                <input [(ngModel)]="price" value="{{ book.price }}" type="number" class="form-control" id="giaSach"
+                    name="giaSach" min="0" step="0.01" th:field="*{giaTien}">
             </div>
             <div class="form-group">
                 <label for="soLuong">Số lượng:</label>
-                <input [(ngModel)]="quantity" value="{{ book.quantity }}" type="number" class="form-control" id="soLuong" name="soLuong">
+                <input [(ngModel)]="quantity" value="{{ book.quantity }}" type="number" class="form-control"
+                    id="soLuong" name="soLuong">
             </div>
             <div class="form-group">
             </div>
             <div class="form-group">
                 <label for="ngayXuatBan">Ngày xuất bản:</label>
-                <input [(ngModel)]="publishedDate" value="{{ book.publishedDate }}" type="date" class="form-control" name="ngayXuatBan" id="ngayXuatBan">
+                <input [(ngModel)]="publishedDate" value="{{ book.publishedDate }}" type="date" class="form-control"
+                    name="ngayXuatBan" id="ngayXuatBan">
             </div>
             <div class="form-group">
                 <label for="nhaXuatBan">Nhà xuất bản:</label>
@@ -44,7 +46,10 @@
                 <label for="nhaXuatBan">Thể loại:</label>
                 <input [(ngModel)]="bookType" value="{{ book.bookType }}" class="form-control">
             </div>
-            <button (click)="updateBook()" class="btn btn-primary">Cập nhập</button>
+            <div class="flex-horizontal flex-space-between mt-4">
+                <button (click)="updateBook()" class="btn btn-primary">Cập nhập</button>
+                <button (click)="deletBook(book.id)" class="btn btn-primary">Xóa sách</button>
+            </div>
         </div>
     </div>
 </div>

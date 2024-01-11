@@ -35,4 +35,8 @@ export class BookServices implements OnInit {
     public updateBook(id: string, data: Book): Observable<Book> {
         return this.httpClient.put<Book>(BOOKS_URI.concat("/" + id), data);
     }
+
+    public deleteBook(id: string): Observable<Book> {
+        return this.httpClient.delete<Book>(BOOKS_URI.concat("/" + id));
+    }
 }
