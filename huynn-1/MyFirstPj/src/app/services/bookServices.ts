@@ -23,4 +23,8 @@ export class BookServices implements OnInit {
     public addBook(bookData: Book): Observable<Book> {
         return this.httpClient.post<Book>(BOOKS_URI, bookData)
     }
+
+    public getBooks(): Observable<Book[]> {
+        return this.httpClient.get<Book[]>(BOOKS_URI);
+    }
 }

@@ -5,6 +5,7 @@ import { AdminComponent } from './admin/admin.component';
 import path from 'path';
 import { title } from 'process';
 import { AddBookComponent } from './admin/crud-book-ui/add-book/add-book.component';
+import { AdminBookListComponent } from './admin/crud-book-ui/admin-book-list/admin-book-list.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,11 @@ export const routes: Routes = [
                 path: 'add-book',
                 title: 'add-book',
                 component: AddBookComponent,
+            },
+            {
+                path: 'book-list',
+                title: 'list-of-books',
+                component: AdminBookListComponent,
             }
         ]
     }

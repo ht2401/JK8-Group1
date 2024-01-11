@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
 
   private listOfUser: UserInfos[] = [];
 
+  public passworrdErr: string = '';
+
+  public usernameErr: string = '';
+
   constructor() {
   }
 
@@ -51,5 +55,25 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("/home");
     }
   }
-  
+
+  public validatePassword(password: string): string {
+    if (password.length < 8) {
+      return "Mật khẩu phải có ít nhất 8 ký tự";
+    }
+
+    if (password.charAt(0) !== password.charAt(0).toLocaleUpperCase()) {
+      return 'Mật khẩu phải có ít nhất một chữ cái viết hoa';
+    }
+
+    if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return 'Mật khẩu không được chứa các ký tự đặc biệt và số';
+    }
+
+    if (/\d/.test(password)) {
+      return 'Mật khẩu không được chứa các ký tự đặc biệt và số';
+    }
+
+    return '';
+  }
+
 }
