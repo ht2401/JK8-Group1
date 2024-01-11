@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable, OnInit, inject } from "@angular/core";
 import { Book } from "./interfaces/book";
 import { Observable } from "rxjs";
@@ -26,5 +26,13 @@ export class BookServices implements OnInit {
 
     public getBooks(): Observable<Book[]> {
         return this.httpClient.get<Book[]>(BOOKS_URI);
+    }
+
+    public getBook(id: string): Observable<Book> {
+        return this.httpClient.get<Book>(BOOKS_URI.concat("/" + id));
+    }
+
+    public updateBook(id: string, data: Book): Observable<Book> {
+        return this.httpClient.put<Book>(BOOKS_URI.concat("/" + id), data);
     }
 }

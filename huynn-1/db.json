@@ -134,27 +134,27 @@
     },
     {
       "id": "22",
-      "name": "Cuộc phiêu lưu của Alice trong xứ sở kì diệu",
+      "name": " Cuộc phiêu lưu ",
       "image": "",
       "price": "99000",
-      "detail": "Tác giả: Lewis Carroll",
+      "detail": "",
       "author": "samuel",
-      "bookType": "children",
+      "quantity": "3",
       "publishedDate": "2024-06-12",
-      "publisher": "Puffin Books",
-      "quantity": "3"
+      "bookType": "children",
+      "publisher": "Puffin Books"
     },
     {
       "id": "-801EzS",
-      "name": "123",
-      "author": "123",
-      "bookType": "jhk",
+      "name": " 123 123123",
+      "image": "",
+      "price": 0,
       "detail": "",
-      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-      "price": 123,
-      "publishedDate": "2024-02-01",
-      "publisher": "hkjjhkjh",
-      "quantity": 123
+      "author": "",
+      "quantity": 0,
+      "publishedDate": "",
+      "bookType": "",
+      "publisher": ""
     }
   ],
   "userInfos": [

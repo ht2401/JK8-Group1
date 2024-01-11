@@ -1,0 +1,50 @@
+<div class="container pt-5 mt-5 border border-primary rounded table-responsive">
+    <div class="col-md-12">
+        <h2>Update Book</h2>
+        <div>
+            <div class="form-group">
+                <label for="imagePreview">Xem trước ảnh:</label> <br>
+                <img id="imagePreview" th:src="@{/image/__${sach.image}__}"
+                    style="max-width: 400px; max-height: 400px;" />
+            </div>
+            <div class="form-group">
+                <label class="small-margin-right" for="image">Ảnh:</label>
+                <input [(ngModel)]="image" src="{{ image }}" type="file" class="form-control-file" id="image"
+                    name="image" accept="image/*" onchange="previewImage(event)">
+            </div>
+            <div class="form-group">
+                <label for="tenSach">Tên sách:</label>
+                <input [(ngModel)]="name" value=" {{book.name }} " type="text" class="form-control" id="tenSach"
+                    name="tenSach">
+            </div>
+            <div class="form-group">
+                <label for="theLoai">Tác Giả:</label>
+                <input [(ngModel)]="author" value="{{ book.author }}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="giaSach">Giá:</label>
+                <input [(ngModel)]="price" value="{{ book.price }}" type="number" class="form-control" id="giaSach" name="giaSach" min="0"
+                    step="0.01" th:field="*{giaTien}">
+            </div>
+            <div class="form-group">
+                <label for="soLuong">Số lượng:</label>
+                <input [(ngModel)]="quantity" value="{{ book.quantity }}" type="number" class="form-control" id="soLuong" name="soLuong">
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <label for="ngayXuatBan">Ngày xuất bản:</label>
+                <input [(ngModel)]="publishedDate" value="{{ book.publishedDate }}" type="date" class="form-control" name="ngayXuatBan" id="ngayXuatBan">
+            </div>
+            <div class="form-group">
+                <label for="nhaXuatBan">Nhà xuất bản:</label>
+                <input [(ngModel)]="publisher" value="{{ book.publisher }}" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="nhaXuatBan">Thể loại:</label>
+                <input [(ngModel)]="bookType" value="{{ book.bookType }}" class="form-control">
+            </div>
+            <button (click)="updateBook()" class="btn btn-primary">Cập nhập</button>
+        </div>
+    </div>
+</div>
