@@ -45,7 +45,7 @@ export class AddBookComponent implements OnInit {
   }
 
   public validateInput(bookData: Book): boolean {
-    if (!bookData.name || !bookData.author || !bookData.price || !bookData.quantity || !bookData.publishedDate || !bookData.publisher || !bookData.bookType || !bookData.image) {
+    if (!bookData.name || !bookData.author || !bookData.price || !bookData.quantity || !bookData.publishedDate || !bookData.publisher || !bookData.bookType) {
       this.validationError = 'Vui lòng điền đầy đủ thông tin.';
       return false;
     }
