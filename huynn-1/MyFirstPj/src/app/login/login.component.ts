@@ -41,8 +41,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.userServices.getUsers().subscribe({
-      next: value => this.listOfUser = value,
-      error: err => console.log(err)
+      next: (value) => {
+        this.listOfUser = value;
+        localStorage.removeItem('token');
+      },
+      error: err => {
+        localStorage.removeItem('token');
+        console.log(err)
+      }
     });
   }
 
@@ -66,18 +72,21 @@ export class LoginComponent implements OnInit {
 
     if (user) {
       if (user?.role === "ADMIN") {
+        localStorage.setItem('token', 'ADMIN');
         alert("Hello " + this.username);
         this.router.navigateByUrl("/admin");
         return;
       } else if (user?.role === "USER") {
+        localStorage.setItem('token', 'USER');
         this.router.navigateByUrl("/home");
         return;
       }
     } else {
+      this.username = '';
+      this.password = '';
       alert("Người dùng không tồn tại");
       return;
     }
-    
   }
 
   public validatePassword(password: string): string {
