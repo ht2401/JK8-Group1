@@ -30,7 +30,7 @@
                         <td><img [src]="book.image" class="zoomable-image" style="max-width: 50px; max-height: 50px;"
                                 alt="Ảnh"></td>
                         <td>{{ book.name }}</td>
-                        <td>{{ book.price }}</td>
+                        <td>{{ book.price | currency:'VND':'symbol':'1.0-0' }}</td>
                         <td>{{ book.quantity }}</td>
                         <td>{{ book.publishedDate | date:'dd/MM/yyyy' }}</td>
                         <td>{{ book.publisher }}</td>

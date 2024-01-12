@@ -10,12 +10,14 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { CarouselComponent } from '../carousel/carousel.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
+import { TruncatePipe } from '../pipes/TruncatePipe';
+import { ListAllBooksComponent } from './list-all-books/list-all-books.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, ListOfBookComponent, BsDropdownModule, FontAwesomeModule, RouterLink, CarouselComponent, BookDetailComponent, RouterModule,
-  HomeFooterComponent],
+  HomeFooterComponent, HomeFooterComponent, ListAllBooksComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

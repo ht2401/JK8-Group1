@@ -3,7 +3,7 @@
     {
       "id": "11",
       "name": "Thế giới Sophie",
-      "image": "",
+      "image": "sophie.jpg",
       "price": "70000",
       "detail": "Tác giả: Jostein Gaarder",
       "author": "huynn",
@@ -15,7 +15,7 @@
     {
       "id": "12",
       "name": "Những ngày thứ Ba với Morrie",
-      "image": "",
+      "image": "morrie.jpg",
       "price": "85000",
       "detail": "Tác giả: Mitch Albom",
       "author": "thomas",
@@ -27,7 +27,7 @@
     {
       "id": "13",
       "name": "Số đỏ",
-      "image": "",
+      "image": "so-do.jpg",
       "price": "60000",
       "detail": "Tác giả: Vũ Trọng Phụng",
       "author": "alice",
@@ -39,7 +39,7 @@
     {
       "id": "14",
       "name": "Bí mật của tôi",
-      "image": "",
+      "image": "secret.jpg",
       "price": "75000",
       "detail": "Tác giả: J.K. Rowling",
       "author": "john",
@@ -51,7 +51,7 @@
     {
       "id": "15",
       "name": "Đắc nhân tâm",
-      "image": "",
+      "image": "dnt.jpg",
       "price": "90000",
       "detail": "Tác giả: Dale Carnegie",
       "author": "linda",
@@ -63,7 +63,7 @@
     {
       "id": "16",
       "name": "Nhà giả kim",
-      "image": "",
+      "image": "nhagiakim.jpg",
       "price": "80000",
       "detail": "Tác giả: Paulo Coelho",
       "author": "michael",
@@ -75,7 +75,7 @@
     {
       "id": "17",
       "name": "Chiến tranh và hòa bình",
-      "image": "",
+      "image": "ctvhb.jpg",
       "price": "95000",
       "detail": "Tác giả: Leo Tolstoy",
       "author": "nancy",
@@ -87,7 +87,7 @@
     {
       "id": "18",
       "name": "Mắt biếc",
-      "image": "",
+      "image": "matbiec.jpg",
       "price": "70000",
       "detail": "Tác giả: Nguyễn Nhật Ánh",
       "author": "oliver",
@@ -99,7 +99,7 @@
     {
       "id": "19",
       "name": "Từ điển Oxford",
-      "image": "",
+      "image": "oxford.jpg",
       "price": "120000",
       "detail": "Tác giả: Đức Hải",
       "author": "pamela",
@@ -111,7 +111,7 @@
     {
       "id": "20",
       "name": "Cuộc gọi của Sói",
-      "image": "",
+      "image": "cuocgoicuasoi.jpg",
       "price": "88000",
       "detail": "Tác giả: Jack London",
       "author": "quincy",
@@ -123,7 +123,7 @@
     {
       "id": "21",
       "name": "Đại Thanh Công",
-      "image": "",
+      "image": "daithanhcong.jpg",
       "price": "60000",
       "detail": "Tác giả: Lê Đình Tự",
       "author": "rachel",
@@ -134,27 +134,15 @@
     },
     {
       "id": "22",
-      "name": " Cuộc phiêu lưu ",
-      "image": "",
+      "name": "Cuộc phiêu lưu",
+      "image": "adventure.jpg",
       "price": "99000",
-      "detail": "",
+      "detail": "Tác giả: John Doe",
       "author": "samuel",
       "quantity": "3",
       "publishedDate": "2024-06-12",
       "bookType": "children",
       "publisher": "Puffin Books"
-    },
-    {
-      "id": "AJW7oJp",
-      "name": "123",
-      "author": "123",
-      "bookType": "123",
-      "detail": "",
-      "image": "C:\\fakepath\\Screenshot 2023-11-02 171128.png",
-      "price": 123,
-      "publishedDate": "2024-01-27",
-      "publisher": "123",
-      "quantity": 123
     }
   ],
   "userInfos": [
