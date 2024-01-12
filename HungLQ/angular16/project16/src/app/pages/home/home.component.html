@@ -1,0 +1,45 @@
+<!-- interpolation -->
+<p>{{myInfo.name}}</p>
+<!-- property binding -->
+<input [type]="tmp">
+
+<br>
+<!-- event binding -->
+<button style="padding: 10px;" (click)="handle()">click me!</button>
+
+<!-- 2-ways binding -->
+
+<!-- structural directice có thể thay đổi cấu trúc của DOM -->
+<!-- ngIf -->
+<app-header *ngIf="myInfo.age > 18"></app-header>
+
+
+<!-- hidden / khác với ngIf hidden chỉ thay đổi display = none, không thay đổi cấu trúc dom -->
+<app-header [hidden]="myInfo.age < 18"></app-header>
+
+
+<!-- ngFor -->
+<!-- index,count, first, last, even, odd -->
+<ul>
+    <li *ngFor="let user of users; index as idx; count as total;first as first; last as last; even as even; odd as odd"> {{user.name}} {{user.age}}
+        <br>
+        <br>
+        <span>at index: {{idx}} of {{total}}</span>
+        <br>
+        <span *ngIf="first">La phan tu thu nhat</span>
+        <br>
+        <span *ngIf="last">La phan tu cuoi cung</span>
+        <br>
+        <span *ngIf="even">La phan tu chan</span>
+        <br>
+        <span *ngIf="odd">La phan tu le</span>
+        <br>
+        
+
+
+    </li>
+</ul>
+
+<!-- class binding -->
+<div [class]="classes"></div>
+
