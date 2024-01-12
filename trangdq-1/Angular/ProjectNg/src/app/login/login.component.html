@@ -3,20 +3,22 @@
         <div class="col-md-6 offset-md-3">
             <div class="login-container">
                 <div class="login-header">
-                    <h1>Bookstore Login</h1> 
+                    <h1>Bookstore Login</h1>
                 </div>
                 <form class="login-form">
                     <div class="form-group">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" class="form-control">
+                        <input type="text" id="username" name="username" class="form-control" [(ngModel)]="username">
+                        <p class="login-error" *ngIf="errors$[0]">{{errors$[0].message}}</p>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" class="form-control">
-                    </div>
-                    <button type="submit">Login</button>
+                        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password">
+                        <p class="login-error" *ngIf="errors$[1]">{{errors$[1].message}}</p>
+                    </div> 
+                    <button type="submit" (click)="login()">Login</button>
                 </form>
             </div>
         </div>
     </div>
-</div> 
+</div>
