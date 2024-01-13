@@ -149,9 +149,20 @@ function addBlock() {
     }
     let found = false;
     while (!found) {
+        let tempArr = [];
+        for (let rr = 0; rr < rows; rr++) {
+            for (let cc = 0; cc < columns; cc++) {
+                if (board[rr][cc] == 0) { 
+                    tempArr.push([rr,cc]);
+                }
+            }
+        }
         
-        let r = Math.floor(Math.random() * rows);
-        let c = Math.floor(Math.random() * columns);
+        let tempbox = Math.floor(Math.random() * tempArr.length);
+        let r = tempArr[tempbox][0];
+        let c = tempArr[tempbox][1];
+        // let r = Math.floor(Math.random() * rows);
+        // let c = Math.floor(Math.random() * columns);
         if (board[r][c] == 0) {
             let x = Math.floor(Math.random() * 2) + 1;
             x *=2;
