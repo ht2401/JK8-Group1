@@ -5,8 +5,7 @@ function logInformation(value: number) {
       descriptor.value = function (...args: any[]) {
         console.log(`Logging information: ${value}`);
         const result = method.apply(this, ...args);
-        console.log(result);
-        return result;
+        return result + value;
       };
     };
   }
