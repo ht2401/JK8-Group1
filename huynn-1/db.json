@@ -1,99 +1,159 @@
 {
   "books": [
     {
-      "id": "1",
-      "name": "Ông già và biển cả",
-      "image": "",
-      "price": "50000",
-      "detail": "Tác giả không rõ tên"
-    },
-    {
-      "id": "2",
-      "name": "Dấu chân trên cát",
-      "image": "",
-      "price": "55000",
-      "detail": "Tác giả: Antoine de Saint-Exupéry"
-    },
-    {
-      "id": "3",
-      "name": "Cuốn theo chiều gió",
-      "image": "",
-      "price": "60000",
-      "detail": "Tác giả: Margaret Mitchell"
-    },
-    {
-      "id": "4",
-      "name": "Harry Potter và Hòn Đá Phù Thủy",
-      "image": "",
-      "price": "75000",
-      "detail": "Tác giả: J.K. Rowling"
-    },
-    {
-      "id": "5",
-      "name": "Những người khốn khổ",
-      "image": "",
-      "price": "45000",
-      "detail": "Tác giả: Victor Hugo"
-    },
-    {
-      "id": "6",
-      "name": "Chúa tể của những chiếc nhẫn",
-      "image": "",
-      "price": "80000",
-      "detail": "Tác giả: J.R.R. Tolkien"
-    },
-    {
-      "id": "7",
-      "name": "Bí mật của người may mắn",
-      "image": "",
-      "price": "70000",
-      "detail": "Tác giả: Paulo Coelho"
-    },
-    {
-      "id": "8",
-      "name": "Nghệ thuật tư duy",
-      "image": "",
-      "price": "60000",
-      "detail": "Tác giả: Mark Manson"
-    },
-    {
-      "id": "9",
-      "name": "Số Đỏ",
-      "image": "",
-      "price": "55000",
-      "detail": "Tác giả: Hồ Biểu Chanh"
-    },
-    {
-      "id": "10",
-      "name": "Đắc nhân tâm",
-      "image": "",
-      "price": "65000",
-      "detail": "Tác giả: Dale Carnegie"
-    },
-    {
       "id": "11",
       "name": "Thế giới Sophie",
       "image": "",
       "price": "70000",
-      "detail": "Tác giả: Jostein Gaarder"
+      "detail": "Tác giả: Jostein Gaarder",
+      "author": "huynn",
+      "bookType": "romantic",
+      "publishedDate": "2024-01-18",
+      "publisher": "Nono",
+      "quantity": "1"
     },
     {
       "id": "12",
-      "name": "Anna Karenina",
+      "name": "Những ngày thứ Ba với Morrie",
       "image": "",
       "price": "85000",
-      "detail": "Tác giả: Lev Tolstoy"
+      "detail": "Tác giả: Mitch Albom",
+      "author": "thomas",
+      "bookType": "inspirational",
+      "publishedDate": "2023-12-20",
+      "publisher": "Văn Hóa",
+      "quantity": "3"
+    },
+    {
+      "id": "13",
+      "name": "Số đỏ",
+      "image": "",
+      "price": "60000",
+      "detail": "Tác giả: Vũ Trọng Phụng",
+      "author": "alice",
+      "bookType": "satirical",
+      "publishedDate": "2024-02-05",
+      "publisher": "NXB Trẻ",
+      "quantity": "5"
+    },
+    {
+      "id": "14",
+      "name": "Bí mật của tôi",
+      "image": "",
+      "price": "75000",
+      "detail": "Tác giả: J.K. Rowling",
+      "author": "john",
+      "bookType": "fantasy",
+      "publishedDate": "2024-03-12",
+      "publisher": "Bloomsbury",
+      "quantity": "2"
+    },
+    {
+      "id": "15",
+      "name": "Đắc nhân tâm",
+      "image": "",
+      "price": "90000",
+      "detail": "Tác giả: Dale Carnegie",
+      "author": "linda",
+      "bookType": "self-help",
+      "publishedDate": "2023-11-08",
+      "publisher": "Minh Long",
+      "quantity": "4"
+    },
+    {
+      "id": "16",
+      "name": "Nhà giả kim",
+      "image": "",
+      "price": "80000",
+      "detail": "Tác giả: Paulo Coelho",
+      "author": "michael",
+      "bookType": "philosophical",
+      "publishedDate": "2024-04-25",
+      "publisher": "HarperCollins",
+      "quantity": "2"
+    },
+    {
+      "id": "17",
+      "name": "Chiến tranh và hòa bình",
+      "image": "",
+      "price": "95000",
+      "detail": "Tác giả: Leo Tolstoy",
+      "author": "nancy",
+      "bookType": "classic",
+      "publishedDate": "2024-02-18",
+      "publisher": "Penguin Classics",
+      "quantity": "1"
+    },
+    {
+      "id": "18",
+      "name": "Mắt biếc",
+      "image": "",
+      "price": "70000",
+      "detail": "Tác giả: Nguyễn Nhật Ánh",
+      "author": "oliver",
+      "bookType": "sentimental",
+      "publishedDate": "2024-01-02",
+      "publisher": "Trẻ",
+      "quantity": "3"
+    },
+    {
+      "id": "19",
+      "name": "Từ điển Oxford",
+      "image": "",
+      "price": "120000",
+      "detail": "Tác giả: Đức Hải",
+      "author": "pamela",
+      "bookType": "reference",
+      "publishedDate": "2023-10-15",
+      "publisher": "Oxford University Press",
+      "quantity": "2"
+    },
+    {
+      "id": "20",
+      "name": "Cuộc gọi của Sói",
+      "image": "",
+      "price": "88000",
+      "detail": "Tác giả: Jack London",
+      "author": "quincy",
+      "bookType": "adventure",
+      "publishedDate": "2024-05-30",
+      "publisher": "Macmillan Publishers",
+      "quantity": "4"
+    },
+    {
+      "id": "21",
+      "name": "Đại Thanh Công",
+      "image": "",
+      "price": "60000",
+      "detail": "Tác giả: Lê Đình Tự",
+      "author": "rachel",
+      "bookType": "historical",
+      "publishedDate": "2023-09-08",
+      "publisher": "Văn Học",
+      "quantity": "1"
+    },
+    {
+      "id": "22",
+      "name": " Cuộc phiêu lưu ",
+      "image": "",
+      "price": "99000",
+      "detail": "",
+      "author": "samuel",
+      "quantity": "3",
+      "publishedDate": "2024-06-12",
+      "bookType": "children",
+      "publisher": "Puffin Books"
     }
   ],
   "userInfos": [
     {
       "userName": "admin",
-      "password": "123",
+      "password": "Huynguyen",
       "role": "ADMIN"
     },
     {
       "userName": "user",
-      "password": "123",
+      "password": "Huynguyen",
       "role": "USER"
     }
   ]

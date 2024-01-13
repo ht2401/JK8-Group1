@@ -7,40 +7,106 @@ import {
   FormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginResponse } from '../services/responses/authenticationResponse';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
+  providers: [AuthenticationServices, UserService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  private loginServices = inject(AuthenticationServices);
+  private authenticationServices = inject(AuthenticationServices);
 
   private userServices = inject(UserService);
 
-  // private listOfUsers: UserInfos[] | undefined;
+  private router = inject(Router);
 
   public username: string = "";
 
   public password: string = "";
 
-  constructor(private router: Router) {
+  private listOfUser: UserInfos[] = [];
+
+  public passworrdErr: string = '';
+
+  public usernameErr: string = '';
+
+  constructor() {
   }
 
-  public async login() {
-    try {
-      let users: UserInfos[] = await this.userServices.getAllUsers();
-      let userInfo: UserInfos | undefined = users.find((user) => user.userName === this.username && this.password);
-      if (userInfo?.role === "ADMIN") {
-        this.router.navigateByUrl('/home');
-        alert("Hello "+ userInfo.userName);
+  ngOnInit(): void {
+    this.userServices.getUsers().subscribe({
+      next: (value) => {
+        this.listOfUser = value;
+        localStorage.removeItem('token');
+      },
+      error: err => {
+        localStorage.removeItem('token');
+        console.log(err)
       }
-    } catch (error) {
-      console.error(error);
+    });
+  }
+
+  public login() {
+
+    if (this.username == '') {
+      this.usernameErr = 'Vui lòng nhập trường này';
+      return;
+    }
+
+    this.usernameErr = '';
+
+    if (this.validatePassword(this.password) !== '') {
+      this.passworrdErr = this.validatePassword(this.password);
+      return;
+    }
+
+    this.passworrdErr = '';
+
+    let user = this.listOfUser.find((user) => user.userName === this.username && this.password === this.password);
+
+    if (user) {
+      if (user?.role === "ADMIN") {
+        localStorage.setItem('token', 'ADMIN');
+        alert("Hello " + this.username);
+        this.router.navigateByUrl("/admin");
+        return;
+      } else if (user?.role === "USER") {
+        localStorage.setItem('token', 'USER');
+        this.router.navigateByUrl("/home");
+        return;
+      }
+    } else {
+      this.username = '';
+      this.password = '';
+      alert("Người dùng không tồn tại");
+      return;
     }
   }
- 
+
+  public validatePassword(password: string): string {
+    if (password.length < 8) {
+      return "Mật khẩu phải có ít nhất 8 ký tự";
+    }
+
+    if (password.charAt(0) !== password.charAt(0).toLocaleUpperCase()) {
+      return 'Mật khẩu phải có ít nhất một chữ cái viết hoa';
+    }
+
+    if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return 'Mật khẩu không được chứa các ký tự đặc biệt và số';
+    }
+
+    if (/\d/.test(password)) {
+      return 'Mật khẩu không được chứa các ký tự đặc biệt và số';
+    }
+
+    return '';
+  }
+
 }

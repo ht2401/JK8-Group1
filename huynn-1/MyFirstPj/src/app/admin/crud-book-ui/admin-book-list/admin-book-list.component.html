@@ -1,0 +1,50 @@
+<div class="container py-5 mt-4 border border-primary rounded table-responsive">
+    <div class="col-md-12">
+        <h2 class="mb-4 text-center">Danh Sách</h2>
+        <div class="input-group mb-3 w-50">
+            <div class="input-group-prepend small-margin-right">
+                <span class="input-group-text" id="basic-addon1">Tìm Kiếm</span>
+            </div>
+            <input id="inputSearch" type="text" class="form-control" onkeyup="timkiem()" placeholder="Điền tên sách...">
+        </div>
+        <div class="table-container" style="max-height: 400px; overflow-y: auto">
+            <table class="table" id="listTable">
+                <thead>
+                    <tr>
+                        <th>Mã sách</th>
+                        <th>Ảnh</th>
+                        <th>Tên sách</th>
+                        <th>Giá tiền</th>
+                        <th>Số lượng</th>
+                        <th>Ngày xuất bản</th>
+                        <th>Nhà Xuất Bản</th>
+                        <th>Thể loại</th>
+                        <th>Tác Giả</th>
+                        <th>Sự kiện</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="listOfBooks">
+                    <!-- Duyệt qua danh sách sách và hiển thị thông tin -->
+                    <tr *ngFor="let book of listOfBooks">
+                        <td>{{ book.id }}</td>
+                        <td><img [src]="book.image" class="zoomable-image" style="max-width: 50px; max-height: 50px;"
+                                alt="Ảnh"></td>
+                        <td>{{ book.name }}</td>
+                        <td>{{ book.price | currency:'VND':'symbol':'1.0-0' }}</td>
+                        <td>{{ book.quantity }}</td>
+                        <td>{{ book.publishedDate | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ book.publisher }}</td>
+                        <td>{{ book.bookType }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>
+                            <a (click)="navigateToUpdateBook(book)" style="cursor: pointer; color: black">
+                                <fa-icon [icon]="faPencil"></fa-icon>
+                            </a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

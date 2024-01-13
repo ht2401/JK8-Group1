@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-lg-6 col-12">
+        <div class="wn__fotorama__wrapper">
+            <div class="fotorama wn__fotorama__action" data-nav="thumbs">
+                <img src="{{ book.image }}" alt="product image" style="width: 249px; height: 313.55px">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-12">
+        <div class="product__info__main">
+            <h1> {{book.name}} </h1>
+            <div class="product-reviews-summary d-flex">
+                <ul class="rating-summary d-flex">
+                    <li><i class="zmdi zmdi-star-outline"></i></li>
+                    <li><i class="zmdi zmdi-star-outline"></i></li>
+                    <li><i class="zmdi zmdi-star-outline"></i></li>
+                    <li class="off"><i class="zmdi zmdi-star-outline"></i></li>
+                    <li class="off"><i class="zmdi zmdi-star-outline"></i></li>
+                </ul>
+            </div>
+            <div class="price-box">
+                <span> {{ book.price }} </span>
+            </div>
+            <div class="box-tocart d-flex">
+                <div class="addtocart__actions">
+                    <button id="them-vao-gio-hang" class="tocart"
+                        title="Add to Cart">Thêm vào giỏ hàng </button>
+                </div>
+                <div class="product-addto-links clearfix">
+                    <a class="wishlist" href="#"></a>
+                    <a class="compare" href="#"></a>
+                </div>
+            </div>
+            <div class="product-share">
+                <ul>
+                    <li class="categories-title">Share :</li>
+                    <li>
+                        <a href="#">
+                            <i class="bi-facebook icons"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="bi-google icons"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="bi-twitter icons"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="bi-linkedin icons"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-4">
+                <h1 class="text-uppercase font-weight-bold text-xxl">Chi tiết thông tin</h1>
+                <p class="text--italic">Tác giả: {{ book.author }} </p>
+                <p class="text--italic">Ngày xuất bản: {{ book.publishedDate }}</p>
+                <p class="text--italic">Nhà xuất bản: {{ book.publisher }} </p>
+                <p class="text--italic">Thể Loại:  {{ book.bookType }} </p>
+                <p class="text--italic">Số lượng sách còn: {{ book.quantity }} </p>
+            </div>
+        </div>
+    </div>
+</div>
