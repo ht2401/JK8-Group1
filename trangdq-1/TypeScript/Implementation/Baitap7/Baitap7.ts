@@ -3,19 +3,30 @@
 // https://github.com/typicode/json-server) 
 
 import fetch from 'node-fetch';
+type Product = {
+  id: number,
+  name: string,
+  price: number,
+  quantity: number
+}
 
-function callAPI(url: string): Promise<any> {
-  return fetch(url).then((response) => {
-    if (response.ok) {
-      return response.json();
+async function getProduct(url: string): Promise<Product> {
+  return await fetch(url).then((response) => {
+    if (response.ok) { 
+      return response.json()
     } else {
-      throw new Error("Không thể gọi API...");
+      throw new Error("Không thể lấy dữ liệu sản phẩm...");
     }
   });
 }
 
-const url = "http://localhost:3000/2"; // npx json-server db.json
-const products = callAPI(url);
-console.log(products); 
+async function main() {
+  try {
+    const product = await getProduct("http://localhost:3000/0");
+    console.log(product); 
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
-// ts-node --esm
+main() 

@@ -1,0 +1,88 @@
+<!-- binding : from code to html -->
+<h2 [title]="message + ' from UFO'">{{ message }}</h2>
+<p>Don't worry... :v We're already here... How old are you?</p>
+
+<div class="container">
+    <!-- realtime update -->
+    <p><input title="Type your age..." type="number" [(ngModel)]="age" /></p>
+
+    <!-- *ngIf -->
+    <!-- <div>
+    <p *ngIf="age <= 18">:D People says that kid meat is yummy~</p>
+    <p *ngIf="age > 18">:D You are too old for the joke.</p>
+</div> -->
+
+    <!-- handle event click -->
+    <button (click)="reset()">Help me pls...</button>&nbsp;
+
+    <!-- ng-template : reduce line code run by break to 2 branches -->
+    <ng-template #empty>
+        <span *ngIf="age == 0; else young"></span>
+    </ng-template>
+    <ng-template #young>
+        <span>Ok~</span>
+    </ng-template>
+    <ng-template #old>
+        <span>No. :D</span>
+    </ng-template>
+
+    <div *ngIf="age < 18; then empty; else old">
+    </div>
+
+    <!-- 2.3 exercise: *ngFor, [ngClass], pipes -->
+    <hr>
+    <table class="tb">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Discounted</th>
+            </tr>
+            <tr *ngFor="let p of fruits_price; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{p.name | uppercase}}</td>
+                <td [ngClass]="{'negative': p.price < 0}">{{ p.price | currency : 'USD' : 'symbol' : '4.2-2'}}</td>
+                <td>{{p.discount | onSale}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <!-- 2.5 exercise: event handler -->
+    <div>
+        <table class="none_tb">
+            <tbody>
+                <tr>
+                    <td>Tỉnh/Thành phố:</td>
+                    <td>
+                        <select (change)="changeCity($event)">
+                            <option *ngFor="let data of cities_map" value="{{data.city}}">
+                                {{data.city}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quận/Huyện:</td>
+                    <td>
+                        <select>
+                            <option *ngFor="let data of districts" value="{{districts}}">
+                                {{data}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- test lifecycle hook -->
+    <div>
+        <app-lifecycle-hook [total]="total"></app-lifecycle-hook>
+        Male UFOs: <input type="number" class="form-control" [(ngModel)]="num1">
+        Female UFOs: <input type="number" class="form-control" [(ngModel)]="num2">
+        <button type="button" class="btn btn-primary" (click)="totalNumber()">Sum</button>
+    </div>
+</div>

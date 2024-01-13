@@ -1,0 +1,11 @@
+<h2>Navigation bar</h2>
+
+<nav *ngIf="isLoggedIn$ | async as isLoggedIn" >
+    <ul>
+        <li><a routerLink='/home' routerLinkActive="active">Homepage</a></li>
+        <li><a routerLink='/about' routerLinkActive="active">About us</a></li> 
+        <li><a routerLink='/' routerLinkActive="active">Login</a></li> 
+    </ul>
+</nav> 
+
+<button (click)="logout()" *ngIf="isLoggedIn$ | async as isLoggedIn">Logout</button>

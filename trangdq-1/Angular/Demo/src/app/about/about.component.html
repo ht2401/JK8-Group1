@@ -1,0 +1,20 @@
+<h2>Receive Information</h2>
+<!-- *ngSwitch -->
+<ul [ngSwitch]="role">
+    <li *ngSwitchCase="'user'">
+        Hello, {{loginName}}! How can I help you?
+    </li>
+    <li *ngSwitchCase="'admin'">
+        Admin: What are you doing here?
+    </li>
+    <li *ngSwitchDefault>
+        Who are you?
+    </li>
+</ul>
+
+<!-- custom style by directives -->
+<div class="container">
+    <span appHighLight>Call ambulance...</span><br>
+    <span [appHighLight]="color">Call ambulance...</span><br>
+    <span [appHighLight]="'blue'">Call ambulance...</span>
+</div>
